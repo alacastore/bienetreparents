@@ -12,7 +12,7 @@ const blogPosts = [
     title: "5 Techniques pour Gérer le Stress Parental",
     description: "Découvrez des méthodes simples et efficaces pour retrouver votre calme en quelques minutes. Des solutions pratiques pour tous les parents.",
     category: "Stress parental",
-    image: "photo-1649972904349-6e44c42644a7",
+    image: "/lovable-uploads/a565a03e-c070-49b9-bf82-15bf64e4635a.png",
     slug: "5-techniques-stress-parental",
     popular: true
   },
