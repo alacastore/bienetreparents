@@ -1,10 +1,12 @@
 import { ArrowRight, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import { toast } from "@/components/ui/use-toast";
 
 const Index = () => {
+  const navigate = useNavigate();
+  
   const handleShare = (articleTitle: string) => {
     if (navigator.share) {
       navigator.share({
@@ -35,7 +37,11 @@ const Index = () => {
             et profiter pleinement de la parentalité. Des conseils simples et efficaces pour une vie 
             de famille plus sereine.
           </p>
-          <Button size="lg" className="text-lg">
+          <Button 
+            size="lg" 
+            className="text-lg"
+            onClick={() => navigate('/ressources')}
+          >
             Explorez nos ressources
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
