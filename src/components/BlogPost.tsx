@@ -34,9 +34,11 @@ export function BlogPost({ post, onShare }: BlogPostProps) {
         </div>
       </CardContent>
       <CardFooter className="flex justify-between">
-        <Button asChild>
-          <Link to={`/blog/${post.slug}`}>Lire l'article</Link>
-        </Button>
+        <Link to={`/blog/${post.slug}`} className="w-full mr-2">
+          <Button className="w-full">
+            Lire l'article
+          </Button>
+        </Link>
         <Button variant="ghost" size="icon" onClick={onShare}>
           <Share2 className="h-4 w-4" />
         </Button>
