@@ -4,6 +4,7 @@ import { BlogHero } from "@/components/BlogHero";
 import { BlogCategories } from "@/components/BlogCategories";
 import { BlogSection } from "@/components/BlogSection";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import Navbar from "@/components/Navbar";
 
 const blogPosts = [
   {
@@ -85,7 +86,8 @@ export default function Blog() {
   };
 
   return (
-    <div className="relative mt-16">
+    <div className="relative">
+      <Navbar />
       <div className="container mx-auto px-4 py-8">
         {/* SEO Meta Tags */}
         <title>Blog Bien-Être des Parents | Conseils et Astuces pour Parents</title>
