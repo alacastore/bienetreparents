@@ -9,7 +9,36 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      cookie_preferences: {
+        Row: {
+          analytics: boolean
+          created_at: string
+          functional: boolean
+          id: string
+          marketing: boolean
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          analytics?: boolean
+          created_at?: string
+          functional?: boolean
+          id?: string
+          marketing?: boolean
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          analytics?: boolean
+          created_at?: string
+          functional?: boolean
+          id?: string
+          marketing?: boolean
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
