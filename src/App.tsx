@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import BlogPost1 from "./pages/BlogPost1";
 import BlogPost2 from "./pages/BlogPost2";
+import BlogPost3 from "./pages/BlogPost3";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/5-techniques-stress-parental" element={<BlogPost1 />} />
           <Route path="/blog/trouver-temps-pour-soi" element={<BlogPost2 />} />
+          <Route path="/blog/equilibrer-vie-pro-familiale" element={<BlogPost3 />} />
           <Route path="/ressources" element={<Index />} />
           <Route path="/contact" element={<Index />} />
         </Routes>

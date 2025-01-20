@@ -7,7 +7,6 @@ import { BlogPost } from "@/components/BlogPost";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { useToast } from "@/hooks/use-toast";
 
-// Sample blog post data - in a real app, this would come from an API
 const blogPosts = [
   {
     id: 1,
@@ -29,7 +28,7 @@ const blogPosts = [
   },
   {
     id: 3,
-    title: "Comment équilibrer vie professionnelle et familiale sans culpabilité",
+    title: "Équilibrer vie professionnelle et familiale sans culpabilité",
     description: "Des stratégies concrètes pour concilier carrière et vie de famille. Découvrez comment d'autres parents y sont parvenus.",
     category: "Organisation familiale",
     image: "photo-1581091226825-a6a2a5aee158",
