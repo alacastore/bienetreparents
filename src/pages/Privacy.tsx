@@ -4,7 +4,7 @@ const Privacy = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main className="container mx-auto px-4 py-16 prose prose-gray max-w-4xl">
+      <main className="container mx-auto px-4 py-24 prose prose-gray max-w-4xl">
         <h1 className="text-3xl font-bold mb-8">Politique de Confidentialité</h1>
 
         <section className="mb-8">
