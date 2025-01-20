@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Search, Share2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { BlogPost } from "@/components/BlogPost";
-import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { useToast } from "@/hooks/use-toast";
+import { BlogHero } from "@/components/BlogHero";
+import { BlogCategories } from "@/components/BlogCategories";
+import { BlogSection } from "@/components/BlogSection";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 const blogPosts = [
   {
@@ -96,78 +94,25 @@ export default function Blog() {
           content="Explorez des articles pratiques pour aider les parents à gérer le stress, équilibrer leur vie et trouver du temps pour eux. Découvrez nos conseils maintenant !"
         />
 
-        {/* Hero Section */}
-        <section className="text-center mb-12">
-          <h1 className="hero-title mb-4">
-            Découvrez nos conseils pour une parentalité épanouie
-          </h1>
-          <p className="text-lg text-gray-600 mb-8">
-            Des astuces concrètes, des méthodes éprouvées et des outils pour aider les parents à retrouver sérénité et équilibre au quotidien.
-          </p>
-          
-          {/* Search Bar */}
-          <div className="max-w-xl mx-auto flex gap-2">
-            <Input
-              type="search"
-              placeholder="Rechercher un article..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full"
-            />
-            <Button variant="outline" size="icon">
-              <Search className="h-4 w-4" />
-            </Button>
-          </div>
-        </section>
+        <BlogHero 
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+        />
 
-        {/* Categories Section */}
-        <section className="mb-12">
-          <h2 className="section-title">Catégories</h2>
-          <div className="flex flex-wrap gap-4">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant="secondary"
-                className="flex-1 sm:flex-none"
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
-        </section>
+        <BlogCategories categories={categories} />
 
-        {/* Recent Articles Section */}
-        <section className="mb-12">
-          <h2 className="section-title">Articles récents</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPosts.map((post) => (
-              <BlogPost
-                key={post.id}
-                post={post}
-                onShare={handleShare}
-              />
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Button size="lg">
-              Voir tous les articles
-            </Button>
-          </div>
-        </section>
+        <BlogSection
+          title="Articles récents"
+          posts={filteredPosts}
+          onShare={handleShare}
+          showViewAll={true}
+        />
 
-        {/* Popular Articles Section */}
-        <section className="mb-12">
-          <h2 className="section-title">Articles populaires</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {popularPosts.map((post) => (
-              <BlogPost
-                key={post.id}
-                post={post}
-                onShare={handleShare}
-              />
-            ))}
-          </div>
-        </section>
+        <BlogSection
+          title="Articles populaires"
+          posts={popularPosts}
+          onShare={handleShare}
+        />
 
         {/* Newsletter Section */}
         <section className="bg-accent rounded-lg p-8 mb-12">
@@ -177,4 +122,3 @@ export default function Blog() {
     </div>
   );
 }
-
