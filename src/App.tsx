@@ -42,7 +42,7 @@ const App = () => (
             <Route path="/mentions-legales" element={<Legal />} />
             <Route path="/politique-de-confidentialite" element={<Privacy />} />
             <Route path="/conditions-generales" element={<Terms />} />
-            <Route path="/gestion-des-cookies" element={<CookiePolicy />} />
+            <Route path="/gestion-cookies" element={<CookiePolicy />} />
           </Routes>
           <Footer />
         </BrowserRouter>
