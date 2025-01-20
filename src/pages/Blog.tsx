@@ -96,7 +96,7 @@ export default function Blog() {
   };
 
   return (
-    <div className="min-h-screen pt-16">
+    <div className="relative mt-16">
       <div className="container mx-auto px-4 py-8">
         {/* SEO Meta Tags */}
         <title>Blog Bien-Être des Parents | Conseils et Astuces pour Parents</title>
