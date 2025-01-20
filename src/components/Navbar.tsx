@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const navItems = [
     { name: "Accueil", path: "/" },
@@ -32,7 +33,9 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className="nav-link font-medium"
+                className={`nav-link font-medium ${
+                  location.pathname === item.path ? "text-primary" : "text-gray-600 hover:text-gray-900"
+                }`}
               >
                 {item.name}
               </Link>
@@ -66,7 +69,9 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className="block px-3 py-2 nav-link font-medium"
+                className={`block px-3 py-2 nav-link font-medium ${
+                  location.pathname === item.path ? "text-primary" : "text-gray-600 hover:text-gray-900"
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
