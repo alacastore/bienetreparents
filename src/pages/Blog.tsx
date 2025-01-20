@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Search, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { BlogPost } from "@/components/BlogPost";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { useToast } from "@/hooks/use-toast";
@@ -169,27 +168,11 @@ export default function Blog() {
         <h2 className="section-title">Articles populaires</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {popularPosts.map((post) => (
-            <Card key={post.id}>
-              <CardHeader>
-                <img
-                  src={`https://source.unsplash.com/${post.image}`}
-                  alt={post.title}
-                  className="w-full h-48 object-cover rounded-t-lg"
-                />
-                <CardTitle className="text-xl">{post.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{post.description}</p>
-              </CardContent>
-              <CardFooter className="flex justify-between">
-                <Button asChild>
-                  <Link to={`/blog/${post.slug}`}>Lire plus</Link>
-                </Button>
-                <Button variant="ghost" size="icon" onClick={handleShare}>
-                  <Share2 className="h-4 w-4" />
-                </Button>
-              </CardFooter>
-            </Card>
+            <BlogPost
+              key={post.id}
+              post={post}
+              onShare={handleShare}
+            />
           ))}
         </div>
       </section>
