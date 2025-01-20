@@ -10,7 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 const blogPosts = [
   {
     id: 1,
-    title: "Comment gérer le stress parental en 5 étapes simples",
+    title: "5 Techniques pour Gérer le Stress Parental",
     description: "Découvrez des méthodes simples et efficaces pour retrouver votre calme en quelques minutes. Des solutions pratiques pour tous les parents.",
     category: "Stress parental",
     image: "photo-1649972904349-6e44c42644a7",
@@ -19,7 +19,7 @@ const blogPosts = [
   },
   {
     id: 2,
-    title: "5 astuces pour trouver du temps pour soi quand on est parent",
+    title: "Comment Trouver du Temps pour Soi en Tant que Parent",
     description: "Apprenez à organiser votre temps et à créer des moments pour vous, même avec un emploi du temps chargé. Des conseils testés par des parents.",
     category: "Temps pour soi",
     image: "photo-1721322800607-8c38375eef04",
@@ -28,7 +28,7 @@ const blogPosts = [
   },
   {
     id: 3,
-    title: "Équilibrer vie professionnelle et familiale sans culpabilité",
+    title: "Équilibrer Vie Pro et Familiale Sans Culpabilité",
     description: "Des stratégies concrètes pour concilier carrière et vie de famille. Découvrez comment d'autres parents y sont parvenus.",
     category: "Organisation familiale",
     image: "photo-1581091226825-a6a2a5aee158",
@@ -37,27 +37,19 @@ const blogPosts = [
   },
   {
     id: 4,
-    title: "10 exercices de respiration pour parents pressés",
+    title: "10 Exercices de Relaxation pour Parents Débordés",
     description: "Des exercices rapides et efficaces pour retrouver votre calme en quelques minutes, même dans les moments les plus stressants.",
     category: "Bien-être mental",
     image: "photo-1486312338219-ce68d2c6f44d",
-    slug: "exercices-respiration-parents",
+    slug: "exercices-relaxation-parents",
   },
   {
     id: 5,
-    title: "Comment organiser sa journée en 30 minutes",
+    title: "Routine Matinale pour Parents : Commencez la Journée Sereinement",
     description: "Une méthode simple pour planifier efficacement sa journée et gagner en productivité tout en restant présent pour ses enfants.",
     category: "Organisation familiale",
     image: "photo-1498050108023-c5249f4df085",
-    slug: "organiser-journee-30-minutes",
-  },
-  {
-    id: 6,
-    title: "Les meilleures applications pour aider les parents",
-    description: "Une sélection d'applications pratiques pour faciliter l'organisation familiale et gagner du temps au quotidien.",
-    category: "Organisation familiale",
-    image: "photo-1460925895917-afdab827c52f",
-    slug: "meilleures-applications-parents",
+    slug: "routine-matinale-parents",
   }
 ];
 
@@ -185,3 +177,4 @@ export default function Blog() {
     </div>
   );
 }
+
