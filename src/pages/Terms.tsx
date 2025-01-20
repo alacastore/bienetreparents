@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import { Helmet } from "react-helmet";
+import CookieManagement from "@/components/CookieManagement";
 
 const Terms = () => {
   return (
@@ -84,8 +85,11 @@ const Terms = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-heading font-semibold mb-4">7. Cookies</h2>
-          <p>L'utilisation des cookies sur le Site est décrite dans notre <a href="/gestion-cookies">Politique de Gestion des Cookies</a>.</p>
+          <h2 className="text-2xl font-heading font-semibold mb-4">7. Gestion des Cookies</h2>
+          <p className="mb-6">Vous pouvez gérer vos préférences en matière de cookies ci-dessous. Ces paramètres peuvent être modifiés à tout moment.</p>
+          <div className="not-prose bg-accent rounded-lg p-6">
+            <CookieManagement />
+          </div>
         </section>
 
         <section className="mb-8">
