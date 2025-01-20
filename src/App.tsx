@@ -13,28 +13,32 @@ import BlogPost4 from "./pages/BlogPost4";
 import BlogPost5 from "./pages/BlogPost5";
 import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/a-propos" element={<About />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/5-techniques-stress-parental" element={<BlogPost1 />} />
-          <Route path="/blog/trouver-temps-pour-soi" element={<BlogPost2 />} />
-          <Route path="/blog/equilibrer-vie-pro-familiale" element={<BlogPost3 />} />
-          <Route path="/blog/exercices-relaxation-parents" element={<BlogPost4 />} />
-          <Route path="/blog/routine-matinale-parents" element={<BlogPost5 />} />
-          <Route path="/ressources" element={<Resources />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </BrowserRouter>
+      <div className="min-h-screen flex flex-col">
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/a-propos" element={<About />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/5-techniques-stress-parental" element={<BlogPost1 />} />
+            <Route path="/blog/trouver-temps-pour-soi" element={<BlogPost2 />} />
+            <Route path="/blog/equilibrer-vie-pro-familiale" element={<BlogPost3 />} />
+            <Route path="/blog/exercices-relaxation-parents" element={<BlogPost4 />} />
+            <Route path="/blog/routine-matinale-parents" element={<BlogPost5 />} />
+            <Route path="/ressources" element={<Resources />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </div>
     </TooltipProvider>
   </QueryClientProvider>
 );
