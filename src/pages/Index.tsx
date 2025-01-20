@@ -1,9 +1,25 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
+import { toast } from "@/components/ui/use-toast";
 
 const Index = () => {
+  const handleShare = (articleTitle: string) => {
+    if (navigator.share) {
+      navigator.share({
+        title: articleTitle,
+        url: window.location.href,
+      }).catch((error) => console.log('Error sharing:', error));
+    } else {
+      toast({
+        title: "Lien copié !",
+        description: "Vous pouvez maintenant le partager avec vos amis.",
+      });
+      navigator.clipboard.writeText(window.location.href);
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -12,11 +28,12 @@ const Index = () => {
       <section className="bg-accent py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="hero-title mb-6">
-            Retrouvez sérénité et équilibre dans votre vie de parent
+            Retrouvez sérénité et équilibre dans votre vie de parent grâce à des solutions pratiques
           </h1>
-          <p className="text-xl mb-8 max-w-2xl mx-auto text-gray-600">
-            Des solutions bienveillantes et pratiques pour vous aider à gérer votre stress
-            et à trouver l'équilibre parfait entre vie professionnelle et familiale.
+          <p className="text-xl mb-8 max-w-3xl mx-auto text-gray-600">
+            Découvrez des solutions concrètes pour réduire votre stress, organiser votre quotidien 
+            et profiter pleinement de la parentalité. Des conseils simples et efficaces pour une vie 
+            de famille plus sereine.
           </p>
           <Button size="lg" className="text-lg">
             Explorez nos ressources
@@ -37,19 +54,29 @@ const Index = () => {
               >
                 <img
                   src={article.image}
-                  alt={article.title}
+                  alt={article.imageAlt}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
                   <h3 className="article-title">{article.title}</h3>
                   <p className="text-gray-600 mb-4">{article.excerpt}</p>
-                  <Link
-                    to={article.link}
-                    className="text-primary hover:text-primary/80 font-medium inline-flex items-center"
-                  >
-                    Lire la suite
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  <div className="flex justify-between items-center">
+                    <Link
+                      to={article.link}
+                      className="text-primary hover:text-primary/80 font-medium inline-flex items-center"
+                    >
+                      Lire la suite
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => handleShare(article.title)}
+                      title="Partager cet article"
+                    >
+                      <Share2 className="h-4 w-4" />
+                    </Button>
+                  </div>
                 </div>
               </article>
             ))}
@@ -57,13 +84,38 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="bg-secondary py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="section-title text-center mb-12">Ce que disent les parents</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
+                <p className="text-gray-600 italic mb-4">{testimonial.content}</p>
+                <div className="flex items-center">
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full mr-4"
+                  />
+                  <div>
+                    <p className="font-semibold">{testimonial.name}</p>
+                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Newsletter Section */}
-      <section className="bg-secondary py-20 px-4">
+      <section className="bg-accent py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="section-title">Rejoignez notre communauté</h2>
-          <p className="text-lg mb-8">
-            Recevez chaque semaine des conseils pratiques et des ressources
-            exclusives pour votre bien-être parental.
+          <p className="text-lg mb-4">
+            Recevez chaque semaine des astuces exclusives pour simplifier votre vie de parent
+            et accédez à notre guide gratuit "7 jours pour une parentalité sereine".
           </p>
           <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input
@@ -81,22 +133,46 @@ const Index = () => {
 
 const featuredArticles = [
   {
-    title: "5 techniques rapides pour gérer le stress parental",
-    excerpt: "Découvrez des méthodes simples et efficaces pour retrouver votre calme en quelques minutes.",
+    title: "Comment gérer le stress parental en 5 étapes simples",
+    excerpt: "Découvrez des méthodes simples et efficaces pour retrouver votre calme en quelques minutes. Cliquez pour transformer votre quotidien !",
     image: "/placeholder.svg",
+    imageAlt: "Parent pratiquant une technique de respiration pour gérer le stress",
     link: "/blog/5-techniques-stress-parental",
   },
   {
-    title: "Comment trouver du temps pour soi",
-    excerpt: "Des astuces concrètes pour créer des moments de pause dans votre emploi du temps chargé.",
+    title: "5 astuces pour trouver du temps pour soi quand on est parent",
+    excerpt: "Des solutions concrètes pour créer des moments de pause dans votre emploi du temps chargé. Découvrez comment reprendre le contrôle !",
     image: "/placeholder.svg",
+    imageAlt: "Parent profitant d'un moment de détente",
     link: "/blog/trouver-temps-pour-soi",
   },
   {
-    title: "Équilibrer vie pro et familiale",
-    excerpt: "Les meilleures stratégies pour concilier carrière et parentalité sans culpabilité.",
+    title: "Comment équilibrer vie professionnelle et familiale sans culpabilité",
+    excerpt: "Les meilleures stratégies pour concilier carrière et parentalité. Apprenez à organiser votre temps efficacement !",
     image: "/placeholder.svg",
+    imageAlt: "Parent travaillant de la maison avec son enfant",
     link: "/blog/equilibrer-vie-pro-familiale",
+  },
+];
+
+const testimonials = [
+  {
+    content: "Grâce aux conseils du site, j'ai enfin trouvé un équilibre entre ma vie professionnelle et ma vie de maman. Les techniques de gestion du stress sont particulièrement efficaces !",
+    name: "Sophie Martin",
+    role: "Maman de 2 enfants",
+    avatar: "/placeholder.svg",
+  },
+  {
+    content: "Les articles sont vraiment pratiques et faciles à mettre en place au quotidien. J'apprécie particulièrement la newsletter hebdomadaire qui me rappelle de prendre soin de moi.",
+    name: "Thomas Dubois",
+    role: "Papa de 3 enfants",
+    avatar: "/placeholder.svg",
+  },
+  {
+    content: "Un véritable guide pour les parents qui cherchent à mieux gérer leur temps et leur énergie. Les ressources proposées sont d'une grande aide !",
+    name: "Marie Lambert",
+    role: "Maman solo",
+    avatar: "/placeholder.svg",
   },
 ];
 
