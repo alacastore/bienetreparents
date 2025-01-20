@@ -33,7 +33,7 @@ export default function BlogPost1() {
       {/* Article Header */}
       <div className="mb-8">
         <img
-          src="https://source.unsplash.com/photo-1581091226825-a6a2a5aee158"
+          src="/lovable-uploads/a565a03e-c070-49b9-bf82-15bf64e4635a.png"
           alt="Parent détendu pratiquant la respiration profonde"
           className="w-full h-[400px] object-cover rounded-lg mb-6"
         />
