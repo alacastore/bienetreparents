@@ -13,6 +13,7 @@ import BlogPost4 from "./pages/BlogPost4";
 import BlogPost5 from "./pages/BlogPost5";
 import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
+import Legal from "./pages/Legal";
 import Footer from "./components/Footer";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/blog/routine-matinale-parents" element={<BlogPost5 />} />
             <Route path="/ressources" element={<Resources />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/mentions-legales" element={<Legal />} />
           </Routes>
           <Footer />
         </BrowserRouter>
