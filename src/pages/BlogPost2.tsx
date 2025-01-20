@@ -2,6 +2,7 @@ import { Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { useToast } from "@/hooks/use-toast";
+import Navbar from "@/components/Navbar";
 
 export default function BlogPost2() {
   const { toast } = useToast();
@@ -22,38 +23,40 @@ export default function BlogPost2() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
-      {/* SEO Meta Tags */}
-      <title>Comment Trouver du Temps pour Soi en Tant que Parent | Bien-Être des Parents</title>
-      <meta
-        name="description"
-        content="Découvrez des stratégies pratiques pour trouver du temps pour vous en tant que parent. Des conseils concrets pour intégrer des moments de pause dans votre quotidien chargé."
-      />
-
-      {/* Article Header */}
-      <div className="mb-8">
-        <img
-          src="https://source.unsplash.com/photo-1721322800607-8c38375eef04"
-          alt="Parent prenant du temps pour soi"
-          className="w-full h-[400px] object-cover rounded-lg mb-6"
+    <div className="relative">
+      <Navbar />
+      <div className="container mx-auto px-4 py-8 max-w-4xl mt-16">
+        {/* SEO Meta Tags */}
+        <title>Comment Trouver du Temps pour Soi en Tant que Parent | Bien-Être des Parents</title>
+        <meta
+          name="description"
+          content="Découvrez des stratégies pratiques pour trouver du temps pour vous en tant que parent. Des conseils concrets pour intégrer des moments de pause dans votre quotidien chargé."
         />
-        <h1 className="hero-title mb-4">
-          Comment Trouver du Temps pour Soi en Tant que Parent
-        </h1>
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-4">
-            <span className="text-gray-600">8 min de lecture</span>
-            <span className="bg-accent px-3 py-1 rounded-full text-sm">
-              Temps pour soi
-            </span>
-          </div>
-          <Button variant="outline" size="icon" onClick={handleShare}>
-            <Share2 className="h-4 w-4" />
-          </Button>
-        </div>
-      </div>
 
-      {/* Article Content */}
+        {/* Article Header */}
+        <div className="mb-8">
+          <img
+            src="https://source.unsplash.com/photo-1721322800607-8c38375eef04"
+            alt="Parent prenant du temps pour soi"
+            className="w-full h-[400px] object-cover rounded-lg mb-6"
+          />
+          <h1 className="hero-title mb-4">
+            Comment Trouver du Temps pour Soi en Tant que Parent
+          </h1>
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-4">
+              <span className="text-gray-600">8 min de lecture</span>
+              <span className="bg-accent px-3 py-1 rounded-full text-sm">
+                Temps pour soi
+              </span>
+            </div>
+            <Button variant="outline" size="icon" onClick={handleShare}>
+              <Share2 className="h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+
+        {/* Article Content */}
       <article className="prose prose-lg max-w-none">
         <p className="lead">
           La parentalité peut souvent laisser peu de place à vos besoins personnels. 
@@ -109,16 +112,17 @@ export default function BlogPost2() {
         </p>
       </article>
 
-      {/* CTA Section */}
-      <div className="my-12 p-8 bg-accent rounded-lg">
-        <h3 className="text-2xl font-heading font-semibold mb-4">
-          Envie d'aller plus loin ?
-        </h3>
-        <p className="mb-6">
-          Recevez chaque semaine des conseils pratiques pour mieux gérer votre temps 
-          et retrouver un équilibre familial serein.
-        </p>
-        <NewsletterSignup />
+        {/* CTA Section */}
+        <div className="my-12 p-8 bg-accent rounded-lg">
+          <h3 className="text-2xl font-heading font-semibold mb-4">
+            Envie d'aller plus loin ?
+          </h3>
+          <p className="mb-6">
+            Recevez chaque semaine des conseils pratiques pour mieux gérer votre temps 
+            et retrouver un équilibre familial serein.
+          </p>
+          <NewsletterSignup />
+        </div>
       </div>
     </div>
   );
