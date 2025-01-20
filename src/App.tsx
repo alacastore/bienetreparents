@@ -16,6 +16,7 @@ import Contact from "./pages/Contact";
 import Legal from "./pages/Legal";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import CookiePolicy from "./pages/CookiePolicy";
 import Footer from "./components/Footer";
 
 const queryClient = new QueryClient();
@@ -41,6 +42,7 @@ const App = () => (
             <Route path="/mentions-legales" element={<Legal />} />
             <Route path="/politique-de-confidentialite" element={<Privacy />} />
             <Route path="/conditions-generales" element={<Terms />} />
+            <Route path="/gestion-des-cookies" element={<CookiePolicy />} />
           </Routes>
           <Footer />
         </BrowserRouter>
