@@ -2,19 +2,48 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 export function NewsletterSignup() {
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle the newsletter signup
-    toast({
-      title: "Inscription réussie !",
-      description: "Vous recevrez bientôt nos conseils hebdomadaires.",
-    });
-    setEmail("");
+    setIsLoading(true);
+
+    try {
+      const { error } = await supabase
+        .from('newsletter_subscriptions')
+        .insert([{ email }]);
+
+      if (error) {
+        if (error.code === '23505') { // Unique violation error code
+          toast({
+            title: "Vous êtes déjà inscrit !",
+            description: "Cette adresse email est déjà enregistrée dans notre newsletter.",
+          });
+        } else {
+          throw error;
+        }
+      } else {
+        toast({
+          title: "Inscription réussie !",
+          description: "Vous recevrez bientôt nos conseils hebdomadaires.",
+        });
+        setEmail("");
+      }
+    } catch (error) {
+      console.error('Error subscribing to newsletter:', error);
+      toast({
+        title: "Une erreur est survenue",
+        description: "Impossible de vous inscrire pour le moment. Veuillez réessayer plus tard.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -34,8 +63,11 @@ export function NewsletterSignup() {
           onChange={(e) => setEmail(e.target.value)}
           required
           className="flex-1"
+          disabled={isLoading}
         />
-        <Button type="submit">S'inscrire</Button>
+        <Button type="submit" disabled={isLoading}>
+          {isLoading ? "Inscription..." : "S'inscrire"}
+        </Button>
       </form>
     </div>
   );
