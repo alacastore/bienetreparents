@@ -147,8 +147,8 @@ const featuredArticles = [
   {
     title: "Comment équilibrer vie professionnelle et familiale sans culpabilité",
     description: "Les meilleures stratégies pour concilier carrière et parentalité. Apprenez à organiser votre temps efficacement !",
-    image: "/lovable-uploads/1519389950473-47ba0277781c.png",
-    imageAlt: "Personnes assises autour d'une table avec des ordinateurs portables, illustrant l'équilibre entre travail et famille",
+    image: "/lovable-uploads/375663d7-41a9-4a08-adb2-9b97c185c370.png",
+    imageAlt: "Parent travaillant à domicile avec son enfant à proximité, illustrant l'équilibre parfait entre travail et famille",
     link: "/blog/equilibrer-vie-pro-familiale",
   },
 ];

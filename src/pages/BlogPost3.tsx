@@ -44,8 +44,8 @@ export default function BlogPost3() {
         {/* Article Header */}
         <div className="mb-8">
           <img
-            src="/lovable-uploads/1cff509c-65f2-477f-8b5b-892e2fdd16c2.png"
-            alt="Parent travaillant avec son enfant à proximité"
+            src="/lovable-uploads/375663d7-41a9-4a08-adb2-9b97c185c370.png"
+            alt="Parent travaillant à domicile avec son enfant à proximité"
             className="w-full h-[400px] object-cover rounded-lg mb-6"
           />
           <h1 className="hero-title mb-4">
