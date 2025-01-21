@@ -1,10 +1,14 @@
-import { Share2 } from "lucide-react";
+import { Share2, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { useToast } from "@/hooks/use-toast";
+import { RelatedPosts } from "@/components/RelatedPosts";
+import { blogPosts } from "@/data/blogData";
+import { useNavigate } from "react-router-dom";
 
 export default function BlogPost5() {
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleShare = () => {
     if (navigator.share) {
@@ -23,12 +27,26 @@ export default function BlogPost5() {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
+      {/* Navigation */}
+      <div className="mb-6">
+        <Button
+          variant="ghost"
+          className="flex items-center gap-2"
+          onClick={() => navigate(-1)}
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Retour
+        </Button>
+      </div>
+
+      {/* SEO Meta Tags */}
       <title>Routine Matinale pour Parents | Bien-Être des Parents</title>
       <meta
         name="description"
         content="Découvrez comment créer une routine matinale efficace pour commencer chaque journée sereinement. Des conseils pratiques pour les parents."
       />
 
+      {/* Article Header */}
       <div className="mb-8">
         <img
           src="https://source.unsplash.com/photo-1498050108023-c5249f4df085"
@@ -51,6 +69,7 @@ export default function BlogPost5() {
         </div>
       </div>
 
+      {/* Article Content */}
       <article className="prose prose-lg max-w-none">
         <p className="lead">
           Une routine matinale bien structurée peut transformer votre journée. 
@@ -156,6 +175,9 @@ export default function BlogPost5() {
         </p>
         <NewsletterSignup />
       </div>
+
+      {/* Related Posts */}
+      <RelatedPosts currentPostId={5} posts={blogPosts} />
     </div>
   );
 }

@@ -1,10 +1,14 @@
-import { Share2 } from "lucide-react";
+import { Share2, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { useToast } from "@/hooks/use-toast";
+import { RelatedPosts } from "@/components/RelatedPosts";
+import { blogPosts } from "@/data/blogData";
+import { useNavigate } from "react-router-dom";
 
 export default function BlogPost4() {
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleShare = () => {
     if (navigator.share) {
@@ -23,12 +27,26 @@ export default function BlogPost4() {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
+      {/* Navigation */}
+      <div className="mb-6">
+        <Button
+          variant="ghost"
+          className="flex items-center gap-2"
+          onClick={() => navigate(-1)}
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Retour
+        </Button>
+      </div>
+
+      {/* SEO Meta Tags */}
       <title>10 Exercices de Relaxation pour Parents Débordés | Bien-Être des Parents</title>
       <meta
         name="description"
         content="Découvrez 10 exercices simples et rapides de relaxation pour parents débordés. Des techniques efficaces pour retrouver calme et sérénité au quotidien."
       />
 
+      {/* Article Header */}
       <div className="mb-8">
         <img
           src="https://source.unsplash.com/photo-1486312338219-ce68d2c6f44d"
@@ -51,6 +69,7 @@ export default function BlogPost4() {
         </div>
       </div>
 
+      {/* Article Content */}
       <article className="prose prose-lg max-w-none">
         <p className="lead">
           La relaxation est essentielle pour réduire le stress et améliorer votre santé mentale. 
@@ -186,6 +205,9 @@ export default function BlogPost4() {
         </p>
         <NewsletterSignup />
       </div>
+
+      {/* Related Posts */}
+      <RelatedPosts currentPostId={4} posts={blogPosts} />
     </div>
   );
 }

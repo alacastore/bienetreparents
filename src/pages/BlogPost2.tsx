@@ -1,11 +1,15 @@
-import { Share2 } from "lucide-react";
+import { Share2, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { useToast } from "@/hooks/use-toast";
+import { RelatedPosts } from "@/components/RelatedPosts";
+import { blogPosts } from "@/data/blogData";
+import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 
 export default function BlogPost2() {
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleShare = () => {
     if (navigator.share) {
@@ -26,6 +30,18 @@ export default function BlogPost2() {
     <div className="relative">
       <Navbar />
       <div className="container mx-auto px-4 py-8 max-w-4xl mt-16">
+        {/* Navigation */}
+        <div className="mb-6">
+          <Button
+            variant="ghost"
+            className="flex items-center gap-2"
+            onClick={() => navigate(-1)}
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Retour
+          </Button>
+        </div>
+
         {/* SEO Meta Tags */}
         <title>Comment Trouver du Temps pour Soi en Tant que Parent | Bien-Être des Parents</title>
         <meta
@@ -123,6 +139,9 @@ export default function BlogPost2() {
           </p>
           <NewsletterSignup />
         </div>
+
+        {/* Related Posts */}
+        <RelatedPosts currentPostId={2} posts={blogPosts} />
       </div>
     </div>
   );
