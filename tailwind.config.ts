@@ -78,15 +78,15 @@ export default {
             },
             h1: {
               color: 'inherit',
-              scrollMarginTop: '5rem',
+              scrollMarginTop: '2.5rem',
             },
             h2: {
               color: 'inherit',
-              scrollMarginTop: '5rem',
+              scrollMarginTop: '2.5rem',
             },
             h3: {
               color: 'inherit',
-              scrollMarginTop: '5rem',
+              scrollMarginTop: '2.5rem',
             },
           },
         },
