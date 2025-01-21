@@ -43,6 +43,14 @@ export const blogPosts: BlogPost[] = [
     category: "Organisation familiale",
     image: "/lovable-uploads/9480113a-b3df-418c-a264-f7b7a92a4d55.png",
     slug: "routine-matinale-parents",
+  },
+  {
+    id: 6,
+    title: "Pourquoi une Routine Familiale Apaisante Transforme votre Quotidien de Parent",
+    description: "Découvrez pourquoi une routine familiale structurée est essentielle pour réduire le stress parental et améliorer la vie quotidienne. Guide complet et exemple de routine inclus.",
+    category: "Organisation familiale",
+    image: "/lovable-uploads/a565a03e-c070-49b9-bf82-15bf64e4635a.png",
+    slug: "routine-familiale-apaisante",
   }
 ];
 
