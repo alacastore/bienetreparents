@@ -1,10 +1,14 @@
-import { Share2 } from "lucide-react";
+import { Share2, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { useToast } from "@/hooks/use-toast";
+import { RelatedPosts } from "@/components/RelatedPosts";
+import { blogPosts } from "@/data/blogData";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function BlogPost1() {
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleShare = () => {
     if (navigator.share) {
@@ -23,6 +27,18 @@ export default function BlogPost1() {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
+      {/* Navigation */}
+      <div className="mb-6">
+        <Button
+          variant="ghost"
+          className="flex items-center gap-2"
+          onClick={() => navigate(-1)}
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Retour
+        </Button>
+      </div>
+
       {/* SEO Meta Tags */}
       <title>5 Techniques pour Gérer le Stress Parental | Bien-Être des Parents</title>
       <meta
@@ -165,6 +181,9 @@ export default function BlogPost1() {
       <section className="my-12">
         <NewsletterSignup />
       </section>
+
+      {/* Related Posts */}
+      <RelatedPosts currentPostId={1} posts={blogPosts} />
     </div>
   );
 }
