@@ -30,16 +30,16 @@ export default function BlogPost4() {
     <div className="relative">
       <Navbar />
       <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <div className="mb-6">
-        <Button
-          variant="ghost"
-          className="flex items-center gap-2"
-          onClick={() => navigate(-1)}
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Retour
-        </Button>
-      </div>
+        <div className="mb-6">
+          <Button
+            variant="ghost"
+            className="flex items-center gap-2"
+            onClick={() => navigate(-1)}
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Retour
+          </Button>
+        </div>
 
       {/* SEO Meta Tags */}
       <title>10 Exercices de Relaxation pour Parents Débordés | Bien-Être des Parents</title>
@@ -71,8 +71,8 @@ export default function BlogPost4() {
         </div>
       </div>
 
-      {/* Article Content */}
-      <article className="prose prose-lg max-w-none">
+        {/* Article Content */}
+        <article className="prose prose-lg max-w-none">
         <p className="lead">
           La relaxation est essentielle pour réduire le stress et améliorer votre santé mentale. 
           Voici 10 exercices simples et rapides pour retrouver votre calme, même dans un emploi 
@@ -195,22 +195,21 @@ export default function BlogPost4() {
           et retrouver énergie et calme. La clé est de les pratiquer régulièrement, même 
           quelques minutes par jour.
         </p>
-      </article>
+        </article>
 
-      <div className="my-12 p-8 bg-accent rounded-lg">
-        <h3 className="text-2xl font-heading font-semibold mb-4">
-          Besoin de plus d'exercices ?
-        </h3>
-        <p className="mb-6">
-          Téléchargez notre guide complet d'exercices de relaxation pour parents débordés 
-          et recevez des conseils hebdomadaires directement dans votre boîte mail.
-        </p>
-        <NewsletterSignup />
-      </div>
+        <div className="my-12 p-8 bg-accent rounded-lg">
+          <h3 className="text-2xl font-heading font-semibold mb-4">
+            Besoin de plus d'exercices ?
+          </h3>
+          <p className="mb-6">
+            Téléchargez notre guide complet d'exercices de relaxation pour parents débordés 
+            et recevez des conseils hebdomadaires directement dans votre boîte mail.
+          </p>
+          <NewsletterSignup />
+        </div>
 
-      {/* Related Posts */}
-      <RelatedPosts currentPostId={4} posts={blogPosts} />
-    </div>
+        {/* Related Posts */}
+        <RelatedPosts currentPostId={4} posts={blogPosts} />
       </div>
     </div>
   );
