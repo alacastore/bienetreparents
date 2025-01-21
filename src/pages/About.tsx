@@ -91,7 +91,7 @@ const About = () => {
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Découvrez nos ressources et rejoignez notre communauté pour une parentalité épanouie.
           </p>
-          <Link to="/ressources">
+          <Link to="/ressources#top">
             <Button size="lg" className="text-lg">
               Voir nos ressources
               <ArrowRight className="ml-2 h-5 w-5" />

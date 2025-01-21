@@ -18,7 +18,7 @@ const Resources = () => {
 
       <Navbar />
 
-      <main className="container mx-auto px-4 pt-24 pb-16">
+      <main id="top" className="container mx-auto px-4 pt-24 pb-16">
         <h1 className="text-4xl font-heading font-bold text-center mb-8">
           Ressources pour une Parentalité Sereine
         </h1>
