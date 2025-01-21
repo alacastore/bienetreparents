@@ -33,7 +33,7 @@ export const blogPosts: BlogPost[] = [
     title: "10 Exercices de Relaxation pour Parents Débordés",
     description: "Des exercices rapides et efficaces pour retrouver votre calme en quelques minutes, même dans les moments les plus stressants.",
     category: "Bien-être mental",
-    image: "photo-1486312338219-ce68d2c6f44d",
+    image: "/lovable-uploads/7288a34b-5e44-445a-b444-bc72cbc5f929.png",
     slug: "exercices-relaxation-parents",
   },
   {
@@ -41,7 +41,7 @@ export const blogPosts: BlogPost[] = [
     title: "Routine Matinale pour Parents : Commencez la Journée Sereinement",
     description: "Une méthode simple pour planifier efficacement sa journée et gagner en productivité tout en restant présent pour ses enfants.",
     category: "Organisation familiale",
-    image: "photo-1498050108023-c5249f4df085",
+    image: "/lovable-uploads/9480113a-b3df-418c-a264-f7b7a92a4d55.png",
     slug: "routine-matinale-parents",
   }
 ];
