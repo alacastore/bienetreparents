@@ -130,11 +130,10 @@ export default function BlogPost2() {
         {/* CTA Section */}
         <div className="my-12 p-8 bg-accent rounded-lg">
           <h3 className="text-2xl font-heading font-semibold mb-4">
-            Envie d'aller plus loin ?
+            Ne manquez pas nos conseils hebdomadaires
           </h3>
           <p className="mb-6">
-            Recevez chaque semaine des conseils pratiques pour mieux gérer votre temps 
-            et retrouver un équilibre familial serein.
+            Inscrivez-vous à notre newsletter et recevez chaque semaine des astuces exclusives pour simplifier votre vie de parent.
           </p>
           <NewsletterSignup />
         </div>
