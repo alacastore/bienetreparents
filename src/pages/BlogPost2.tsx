@@ -52,8 +52,8 @@ export default function BlogPost2() {
         {/* Article Header */}
         <div className="mb-8">
           <img
-            src="https://source.unsplash.com/photo-1721322800607-8c38375eef04"
-            alt="Parent prenant du temps pour soi"
+            src="/lovable-uploads/3e350d6f-1da4-4c81-a796-96e135b1b1de.png"
+            alt="Parent prenant un moment de détente pour lire dans un environnement cosy"
             className="w-full h-[400px] object-cover rounded-lg mb-6"
           />
           <h1 className="hero-title mb-4">

@@ -15,7 +15,7 @@ export const blogPosts: BlogPost[] = [
     title: "Comment Trouver du Temps pour Soi en Tant que Parent",
     description: "Apprenez à organiser votre temps et à créer des moments pour vous, même avec un emploi du temps chargé. Des conseils testés par des parents.",
     category: "Temps pour soi",
-    image: "photo-1721322800607-8c38375eef04",
+    image: "/lovable-uploads/3e350d6f-1da4-4c81-a796-96e135b1b1de.png",
     slug: "trouver-temps-pour-soi",
     popular: true
   },
