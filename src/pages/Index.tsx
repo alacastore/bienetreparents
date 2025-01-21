@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import { toast } from "@/components/ui/use-toast";
+import { SectionTitle } from "@/components/ui/section-title";
+import { FeatureCard } from "@/components/ui/feature-card";
+import { AccentSection } from "@/components/ui/accent-section";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -51,7 +54,7 @@ const Index = () => {
       {/* Featured Articles Section */}
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="section-title text-center">Articles Populaires</h2>
+          <SectionTitle centered>Articles Populaires</SectionTitle>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {featuredArticles.map((article) => (
               <article
@@ -65,7 +68,7 @@ const Index = () => {
                 />
                 <div className="p-6">
                   <h3 className="article-title">{article.title}</h3>
-                  <p className="text-gray-600 mb-4">{article.excerpt}</p>
+                  <p className="text-gray-600 mb-4">{article.description}</p>
                   <div className="flex justify-between items-center">
                     <Link
                       to={article.link}
@@ -91,34 +94,26 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-secondary py-16 px-4">
+      <AccentSection className="mb-12">
         <div className="max-w-6xl mx-auto">
-          <h2 className="section-title text-center mb-12">Ce que disent les parents</h2>
+          <SectionTitle centered>Ce que disent les parents</SectionTitle>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
-                <p className="text-gray-600 italic mb-4">{testimonial.content}</p>
-                <div className="flex items-center">
-                  <img
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full mr-4"
-                  />
-                  <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
-                  </div>
-                </div>
-              </div>
+              <FeatureCard
+                key={index}
+                title={testimonial.name}
+                description={testimonial.content}
+                className="relative"
+              />
             ))}
           </div>
         </div>
-      </section>
+      </AccentSection>
 
       {/* Newsletter Section */}
-      <section className="bg-accent py-20 px-4">
+      <AccentSection>
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="section-title">Rejoignez notre communauté</h2>
+          <SectionTitle centered>Rejoignez notre communauté</SectionTitle>
           <p className="text-lg mb-4">
             Recevez chaque semaine des astuces exclusives pour simplifier votre vie de parent
             et accédez à notre guide gratuit "7 jours pour une parentalité sereine".
@@ -132,7 +127,7 @@ const Index = () => {
             <Button type="submit">S'inscrire</Button>
           </form>
         </div>
-      </section>
+      </AccentSection>
     </div>
   );
 };
@@ -140,21 +135,21 @@ const Index = () => {
 const featuredArticles = [
   {
     title: "Comment gérer le stress parental en 5 étapes simples",
-    excerpt: "Découvrez des méthodes simples et efficaces pour retrouver votre calme en quelques minutes. Cliquez pour transformer votre quotidien !",
+    description: "Découvrez des méthodes simples et efficaces pour retrouver votre calme en quelques minutes. Cliquez pour transformer votre quotidien !",
     image: "/lovable-uploads/a565a03e-c070-49b9-bf82-15bf64e4635a.png",
     imageAlt: "Parent pratiquant une technique de respiration pour gérer le stress",
     link: "/blog/5-techniques-stress-parental",
   },
   {
     title: "5 astuces pour trouver du temps pour soi quand on est parent",
-    excerpt: "Des solutions concrètes pour créer des moments de pause dans votre emploi du temps chargé. Découvrez comment reprendre le contrôle !",
+    description: "Des solutions concrètes pour créer des moments de pause dans votre emploi du temps chargé. Découvrez comment reprendre le contrôle !",
     image: "/lovable-uploads/9480113a-b3df-418c-a264-f7b7a92a4d55.png",
     imageAlt: "Parent profitant d'un moment de détente",
     link: "/blog/trouver-temps-pour-soi",
   },
   {
     title: "Comment équilibrer vie professionnelle et familiale sans culpabilité",
-    excerpt: "Les meilleures stratégies pour concilier carrière et parentalité. Apprenez à organiser votre temps efficacement !",
+    description: "Les meilleures stratégies pour concilier carrière et parentalité. Apprenez à organiser votre temps efficacement !",
     image: "/lovable-uploads/7288a34b-5e44-445a-b444-bc72cbc5f929.png",
     imageAlt: "Parent travaillant de la maison avec son enfant",
     link: "/blog/equilibrer-vie-pro-familiale",
