@@ -23,39 +23,41 @@ import { StrictMode } from "react";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <StrictMode>
-    <BrowserRouter>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <div className="min-h-screen flex flex-col">
-            <Toaster />
-            <Sonner />
-            <Navbar />
-            <main className="flex-1 pt-16">
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/a-propos" element={<About />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/5-techniques-stress-parental" element={<BlogPost1 />} />
-                <Route path="/blog/trouver-temps-pour-soi" element={<BlogPost2 />} />
-                <Route path="/blog/equilibrer-vie-pro-familiale" element={<BlogPost3 />} />
-                <Route path="/blog/exercices-relaxation-parents" element={<BlogPost4 />} />
-                <Route path="/blog/routine-matinale-parents" element={<BlogPost5 />} />
-                <Route path="/ressources" element={<Resources />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/mentions-legales" element={<Legal />} />
-                <Route path="/politique-de-confidentialite" element={<Privacy />} />
-                <Route path="/conditions-generales" element={<Terms />} />
-                <Route path="/gestion-cookies" element={<CookiePolicy />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
-        </TooltipProvider>
-      </QueryClientProvider>
-    </BrowserRouter>
-  </StrictMode>
-);
+const App = () => {
+  return (
+    <StrictMode>
+      <BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            <div className="min-h-screen flex flex-col">
+              <Toaster />
+              <Sonner />
+              <Navbar />
+              <main className="flex-1 pt-16">
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/a-propos" element={<About />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/5-techniques-stress-parental" element={<BlogPost1 />} />
+                  <Route path="/blog/trouver-temps-pour-soi" element={<BlogPost2 />} />
+                  <Route path="/blog/equilibrer-vie-pro-familiale" element={<BlogPost3 />} />
+                  <Route path="/blog/exercices-relaxation-parents" element={<BlogPost4 />} />
+                  <Route path="/blog/routine-matinale-parents" element={<BlogPost5 />} />
+                  <Route path="/ressources" element={<Resources />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/mentions-legales" element={<Legal />} />
+                  <Route path="/politique-de-confidentialite" element={<Privacy />} />
+                  <Route path="/conditions-generales" element={<Terms />} />
+                  <Route path="/gestion-cookies" element={<CookiePolicy />} />
+                </Routes>
+              </main>
+              <Footer />
+            </div>
+          </TooltipProvider>
+        </QueryClientProvider>
+      </BrowserRouter>
+    </StrictMode>
+  );
+};
 
 export default App;
