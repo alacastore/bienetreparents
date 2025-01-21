@@ -24,7 +24,7 @@ export const blogPosts: BlogPost[] = [
     title: "Équilibrer Vie Pro et Familiale Sans Culpabilité",
     description: "Des stratégies concrètes pour concilier carrière et vie de famille. Découvrez comment d'autres parents y sont parvenus.",
     category: "Organisation familiale",
-    image: "/lovable-uploads/1cff509c-65f2-477f-8b5b-892e2fdd16c2.png",
+    image: "/lovable-uploads/1519389950473-47ba0277781c.png",
     slug: "equilibrer-vie-pro-familiale",
     popular: true
   },
