@@ -5,6 +5,7 @@ import { useToast } from "@/hooks/use-toast";
 import { RelatedPosts } from "@/components/RelatedPosts";
 import { blogPosts } from "@/data/blogData";
 import { useNavigate } from "react-router-dom";
+import Navbar from "@/components/Navbar";
 
 export default function BlogPost3() {
   const { toast } = useToast();
@@ -26,8 +27,9 @@ export default function BlogPost3() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
-      {/* Navigation */}
+    <div className="relative">
+      <Navbar />
+      <div className="container mx-auto px-4 py-8 max-w-4xl">
       <div className="mb-6">
         <Button
           variant="ghost"
@@ -148,6 +150,7 @@ export default function BlogPost3() {
 
       {/* Related Posts */}
       <RelatedPosts currentPostId={3} posts={blogPosts} />
+      </div>
     </div>
   );
 }

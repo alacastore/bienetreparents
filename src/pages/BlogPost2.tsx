@@ -29,8 +29,7 @@ export default function BlogPost2() {
   return (
     <div className="relative">
       <Navbar />
-      <div className="container mx-auto px-4 py-8 max-w-4xl mt-16">
-        {/* Navigation */}
+      <div className="container mx-auto px-4 py-8 max-w-4xl">
         <div className="mb-6">
           <Button
             variant="ghost"
