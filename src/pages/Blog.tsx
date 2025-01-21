@@ -70,18 +70,29 @@ export default function Blog() {
 
   const popularPosts = blogPosts.filter(post => post.popular);
 
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: "Blog Bien-Être des Parents",
-        url: window.location.href,
-      });
-    } else {
+  const handleShare = async () => {
+    try {
+      // Vérifie si l'API de partage est disponible ET si nous avons la permission
+      if (navigator.share && navigator.canShare && navigator.canShare({ url: window.location.href })) {
+        await navigator.share({
+          title: "Blog Bien-Être des Parents",
+          url: window.location.href,
+        });
+      } else {
+        // Fallback : copie le lien dans le presse-papier
+        await navigator.clipboard.writeText(window.location.href);
+        toast({
+          title: "Lien copié !",
+          description: "Vous pouvez maintenant le partager.",
+        });
+      }
+    } catch (error) {
+      // En cas d'erreur, on utilise toujours le fallback de copie
+      await navigator.clipboard.writeText(window.location.href);
       toast({
         title: "Lien copié !",
         description: "Vous pouvez maintenant le partager.",
       });
-      navigator.clipboard.writeText(window.location.href);
     }
   };
 
