@@ -1,7 +1,6 @@
 import { ArrowRight, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "@/components/Navbar";
 import { toast } from "@/components/ui/use-toast";
 import { SectionTitle } from "@/components/ui/section-title";
 import { FeatureCard } from "@/components/ui/feature-card";
@@ -27,8 +26,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
-      
       {/* Hero Section */}
       <section className="bg-accent py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
