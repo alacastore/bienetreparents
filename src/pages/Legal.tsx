@@ -7,23 +7,23 @@ const Legal = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Conditions Générales d'Utilisation - Bien-Être des Parents</title>
+        <title>Mentions Légales - bienetreparents.fr</title>
         <meta
           name="description"
-          content="Conditions générales d'utilisation du site Bien-Être des Parents. Découvrez nos termes et conditions d'utilisation."
+          content="Mentions légales du site bienetreparents.fr. Découvrez nos termes et conditions d'utilisation."
         />
       </Helmet>
 
       <Navbar />
 
       <main className="container mx-auto px-4 py-24 prose prose-gray max-w-4xl">
-        <h1 className="text-3xl font-bold mb-8">Conditions Générales d'Utilisation (CGU)</h1>
+        <h1 className="text-3xl font-bold mb-8">Mentions Légales</h1>
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">Préambule</h2>
           <p>
-            Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation du site <strong>Bien-Être des Parents</strong> (ci-après "le Site"). 
-            En accédant au Site, vous acceptez sans réserve les présentes CGU. Si vous n'acceptez pas ces termes, vous êtes invité à ne pas utiliser le Site.
+            Les présentes Mentions Légales régissent l'accès et l'utilisation du site <strong>bienetreparents.fr</strong> (ci-après "le Site"). 
+            En accédant au Site, vous acceptez sans réserve les présentes mentions légales.
           </p>
         </section>
 
@@ -114,9 +114,9 @@ const Legal = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">9. Contact</h2>
+          <h2 className="text-2xl font-semibold mb-4">Contact</h2>
           <p>
-            Pour toute question relative aux présentes CGU, vous pouvez nous contacter à l'adresse suivante : 
+            Pour toute question relative aux présentes mentions légales, vous pouvez nous contacter à l'adresse suivante : 
             <a href="mailto:contact@bienetreparents.fr" className="text-primary hover:underline ml-1">
               contact@bienetreparents.fr
             </a>

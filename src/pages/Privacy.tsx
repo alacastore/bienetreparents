@@ -1,16 +1,27 @@
+import React from "react";
+import { Helmet } from "react-helmet";
 import Navbar from "@/components/Navbar";
 
 const Privacy = () => {
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Politique de Confidentialité - bienetreparents.fr</title>
+        <meta
+          name="description"
+          content="Politique de confidentialité du site bienetreparents.fr. Découvrez comment nous protégeons vos données personnelles."
+        />
+      </Helmet>
+
       <Navbar />
+
       <main className="container mx-auto px-4 py-24 prose prose-gray max-w-4xl">
         <h1 className="text-3xl font-bold mb-8">Politique de Confidentialité</h1>
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
           <p>
-            La présente politique de confidentialité décrit comment le site <strong>Bien-Être des Parents</strong> collecte, 
+            La présente politique de confidentialité décrit comment le site <strong>bienetreparents.fr</strong> collecte, 
             utilise, conserve et protège vos données personnelles conformément aux réglementations en vigueur, notamment 
             le Règlement Général sur la Protection des Données (RGPD).
           </p>
@@ -18,7 +29,7 @@ const Privacy = () => {
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">Responsable du traitement des données</h2>
-          <p><strong>Nom du site :</strong> Bien-Être des Parents</p>
+          <p><strong>Nom du site :</strong> bienetreparents.fr</p>
           <p><strong>Propriétaire :</strong> [Nom ou raison sociale du propriétaire]</p>
           <p><strong>Adresse :</strong> [Adresse complète du responsable]</p>
           <p><strong>Contact :</strong> contact@bienetreparents.fr</p>
@@ -141,6 +152,7 @@ const Privacy = () => {
             </a>
           </p>
         </section>
+
       </main>
     </div>
   );

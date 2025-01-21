@@ -6,8 +6,8 @@ const Terms = () => {
   return (
     <>
       <Helmet>
-        <title>Conditions Générales d'Utilisation - Bien-Être des Parents</title>
-        <meta name="description" content="Conditions générales d'utilisation du site Bien-Être des Parents" />
+        <title>Conditions Générales d'Utilisation - bienetreparents.fr</title>
+        <meta name="description" content="Conditions générales d'utilisation du site bienetreparents.fr" />
       </Helmet>
       <Navbar />
       <main className="container mx-auto px-4 py-8 prose prose-slate max-w-4xl">
@@ -15,12 +15,12 @@ const Terms = () => {
 
         <section className="mb-8">
           <h2 className="text-2xl font-heading font-semibold mb-4">Préambule</h2>
-          <p>Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation du site <strong>Bien-Être des Parents</strong> (ci-après "le Site"). En accédant au Site, vous acceptez sans réserve les présentes CGU. Si vous n'acceptez pas ces termes, vous êtes invité à ne pas utiliser le Site.</p>
+          <p>Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation du site <strong>bienetreparents.fr</strong> (ci-après "le Site"). En accédant au Site, vous acceptez sans réserve les présentes CGU. Si vous n'acceptez pas ces termes, vous êtes invité à ne pas utiliser le Site.</p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-2xl font-heading font-semibold mb-4">1. Informations générales</h2>
-          <p><strong>Nom du site :</strong> Bien-Être des Parents<br />
+          <p><strong>Nom du site :</strong> bienetreparents.fr<br />
           <strong>Propriétaire :</strong> [Nom ou raison sociale du propriétaire]<br />
           <strong>Adresse e-mail :</strong> contact@bienetreparents.fr</p>
         </section>
