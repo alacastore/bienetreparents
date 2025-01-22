@@ -51,7 +51,7 @@ export default function BlogPost5() {
       {/* Article Header */}
       <div className="mb-8">
         <img
-          src="https://source.unsplash.com/photo-1498050108023-c5249f4df085"
+          src="/lovable-uploads/bacbb79f-f17c-409b-8cc8-c2b9f444336f.png"
           alt="Parent commençant sa journée sereinement"
           className="w-full h-[400px] object-cover rounded-lg mb-6"
         />
