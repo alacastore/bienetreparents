@@ -26,33 +26,36 @@ const Resources = () => {
     setIsLoading(true);
 
     try {
-      const { error } = await supabase
+      // 1. Save to newsletter
+      const { error: dbError } = await supabase
         .from('newsletter_subscriptions')
         .insert([{ email }]);
 
-      if (error) {
-        if (error.code === '23505') { // Code d'erreur pour une violation d'unicité
-          toast({
-            title: "Email déjà inscrit",
-            description: "Vous pouvez télécharger directement le guide.",
-          });
-        } else {
-          throw error;
-        }
-      } else {
-        toast({
-          title: "Merci de votre inscription !",
-          description: "Le téléchargement va commencer automatiquement.",
-        });
+      if (dbError && dbError.code !== '23505') { // Ignore duplicate email error
+        throw dbError;
       }
 
-      // Déclencher le téléchargement
-      const link = document.createElement('a');
-      link.href = '/guides/7-jours-parentalite-sereine.pdf';
-      link.download = '7-jours-parentalite-sereine.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // 2. Send email with guide
+      const response = await fetch(
+        "https://ojmwznedyfosvcbrgixx.supabase.co/functions/v1/send-guide",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${process.env.SUPABASE_ANON_KEY}`,
+          },
+          body: JSON.stringify({ to: email }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Erreur lors de l'envoi de l'email");
+      }
+
+      toast({
+        title: "Guide envoyé !",
+        description: "Vérifiez votre boîte mail pour télécharger votre guide.",
+      });
 
       setShowEmailDialog(false);
       setEmail("");
