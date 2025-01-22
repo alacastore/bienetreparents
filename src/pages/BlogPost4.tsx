@@ -12,7 +12,7 @@ export default function BlogPost4() {
         <BlogHeader
           title="10 Exercices de Relaxation pour Parents Débordés"
           description="Découvrez 10 exercices simples et rapides de relaxation pour parents débordés. Des techniques efficaces pour retrouver calme et sérénité au quotidien."
-          image="/lovable-uploads/6a4eadfe-8bf8-468e-bf5c-e71f89d860a8.png"
+          image="/lovable-uploads/770fa2d1-7e1b-481f-8b73-654fc09635e2.png"
           readTime="8 min de lecture"
           category="Bien-être mental"
         />
