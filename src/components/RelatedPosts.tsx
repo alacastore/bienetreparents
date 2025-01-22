@@ -8,7 +8,6 @@ interface RelatedPostsProps {
 }
 
 export function RelatedPosts({ currentPostId, posts }: RelatedPostsProps) {
-  // Filtrer les articles pour exclure l'article actuel et limiter à 3 articles
   const relatedPosts = posts
     .filter(post => post.id !== currentPostId)
     .slice(0, 3);
@@ -22,7 +21,7 @@ export function RelatedPosts({ currentPostId, posts }: RelatedPostsProps) {
             <Card className="h-full hover:shadow-lg transition-shadow">
               <CardHeader>
                 <img
-                  src={post.image.startsWith('/') ? post.image : `https://source.unsplash.com/${post.image}`}
+                  src={post.image}
                   alt={post.title}
                   className="w-full h-40 object-cover rounded-t-lg"
                 />

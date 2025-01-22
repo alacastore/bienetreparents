@@ -41,7 +41,6 @@ export default function BlogPost5() {
           </Button>
         </div>
 
-        {/* Article Header */}
         <div className="mb-8">
           <img
             src="/lovable-uploads/bacbb79f-f17c-409b-8cc8-c2b9f444336f.png"
@@ -64,7 +63,6 @@ export default function BlogPost5() {
           </div>
         </div>
 
-        {/* Article Content */}
         <article className="prose prose-lg max-w-none">
           <p className="lead">
             Une routine matinale bien structurée peut transformer votre journée. 
@@ -171,7 +169,6 @@ export default function BlogPost5() {
           <NewsletterSignup />
         </div>
 
-        {/* Related Posts */}
         <RelatedPosts currentPostId={5} posts={blogPosts} />
       </div>
     </div>
