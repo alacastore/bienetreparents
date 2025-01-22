@@ -1,11 +1,73 @@
 import { Helmet } from "react-helmet";
-import Navbar from "@/components/Navbar";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Download, PlayCircle, Headphones, CheckSquare } from "lucide-react";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 const Resources = () => {
+  const [showEmailDialog, setShowEmailDialog] = useState(false);
+  const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleDownload = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const { error } = await supabase
+        .from('newsletter_subscriptions')
+        .insert([{ email }]);
+
+      if (error) {
+        if (error.code === '23505') { // Code d'erreur pour une violation d'unicité
+          toast({
+            title: "Email déjà inscrit",
+            description: "Vous pouvez télécharger directement le guide.",
+          });
+        } else {
+          throw error;
+        }
+      } else {
+        toast({
+          title: "Merci de votre inscription !",
+          description: "Le téléchargement va commencer automatiquement.",
+        });
+      }
+
+      // Déclencher le téléchargement
+      const link = document.createElement('a');
+      link.href = '/guides/7-jours-parentalite-sereine.pdf';
+      link.download = '7-jours-parentalite-sereine.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      setShowEmailDialog(false);
+      setEmail("");
+    } catch (error) {
+      console.error('Error:', error);
+      toast({
+        title: "Une erreur est survenue",
+        description: "Impossible de traiter votre demande pour le moment.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
@@ -15,8 +77,6 @@ const Resources = () => {
           content="Accédez à des guides, vidéos et outils pratiques pour une parentalité épanouie. Téléchargez nos contenus exclusifs maintenant."
         />
       </Helmet>
-
-      <Navbar />
 
       <main id="top" className="container mx-auto px-4 pt-24 pb-16">
         <h1 className="text-4xl font-heading font-bold text-center mb-8">
@@ -42,7 +102,12 @@ const Resources = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button className="w-full">Télécharger le guide</Button>
+                <Button 
+                  className="w-full"
+                  onClick={() => setShowEmailDialog(true)}
+                >
+                  Télécharger le guide
+                </Button>
               </CardContent>
             </Card>
           </div>
@@ -110,6 +175,29 @@ const Resources = () => {
           <NewsletterSignup />
         </section>
       </main>
+
+      <Dialog open={showEmailDialog} onOpenChange={setShowEmailDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Téléchargez votre guide gratuit</DialogTitle>
+            <DialogDescription>
+              Entrez votre email pour recevoir le guide "7 Jours pour une Parentalité Sereine" et nos conseils hebdomadaires.
+            </DialogDescription>
+          </DialogHeader>
+          <form onSubmit={handleDownload} className="space-y-4">
+            <Input
+              type="email"
+              placeholder="Votre email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <Button type="submit" className="w-full" disabled={isLoading}>
+              {isLoading ? "Traitement en cours..." : "Télécharger le guide"}
+            </Button>
+          </form>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
