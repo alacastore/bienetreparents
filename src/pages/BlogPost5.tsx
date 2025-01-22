@@ -43,7 +43,7 @@ export default function BlogPost5() {
 
         <div className="mb-8">
           <img
-            src="/lovable-uploads/bacbb79f-f17c-409b-8cc8-c2b9f444336f.png"
+            src="/lovable-uploads/2a51a3d6-b4b1-4f5c-9c48-bc3d00963d3a.png"
             alt="Parent commençant sa journée sereinement"
             className="w-full h-[400px] object-cover rounded-lg mb-6"
           />

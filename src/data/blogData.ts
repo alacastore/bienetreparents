@@ -41,7 +41,7 @@ export const blogPosts: BlogPost[] = [
     title: "Routine Matinale pour Parents : Commencez la Journée Sereinement",
     description: "Une méthode simple pour planifier efficacement sa journée et gagner en productivité tout en restant présent pour ses enfants.",
     category: "Organisation familiale",
-    image: "/lovable-uploads/bacbb79f-f17c-409b-8cc8-c2b9f444336f.png",
+    image: "/lovable-uploads/2a51a3d6-b4b1-4f5c-9c48-bc3d00963d3a.png",
     slug: "routine-matinale-parents",
   },
   {
