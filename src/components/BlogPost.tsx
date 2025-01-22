@@ -19,7 +19,7 @@ export function BlogPost({ post, onShare }: BlogPostProps) {
     <Card>
       <CardHeader>
         <img
-          src={post.image.startsWith('/') ? post.image : `https://source.unsplash.com/${post.image}`}
+          src={post.image}
           alt={post.title}
           className="w-full h-48 object-cover rounded-t-lg"
         />
