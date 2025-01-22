@@ -33,7 +33,7 @@ export const blogPosts: BlogPost[] = [
     title: "10 Exercices de Relaxation pour Parents Débordés",
     description: "Des exercices rapides et efficaces pour retrouver votre calme en quelques minutes, même dans les moments les plus stressants.",
     category: "Bien-être mental",
-    image: "/lovable-uploads/7288a34b-5e44-445a-b444-bc72cbc5f929.png",
+    image: "/lovable-uploads/6a4eadfe-8bf8-468e-bf5c-e71f89d860a8.png",
     slug: "exercices-relaxation-parents",
   },
   {
