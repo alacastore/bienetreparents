@@ -34,20 +34,22 @@ export function GuideDownloadDialog({ open, onOpenChange }: GuideDownloadDialogP
         throw dbError;
       }
 
-      const { error: functionError } = await supabase.functions.invoke('send-guide', {
+      const { error: functionError, data } = await supabase.functions.invoke('send-guide', {
         body: { to: email }
       });
 
       if (functionError) {
-        if (functionError.message.includes('alacastore@gmail.com')) {
-          toast({
-            title: "Mode test",
-            description: "Pendant la phase de test, seuls les emails vers alacastore@gmail.com sont autorisés. Pour envoyer à d'autres adresses, veuillez vérifier un domaine sur resend.com/domains",
-            variant: "destructive",
-          });
-          return;
-        }
         throw functionError;
+      }
+
+      // Check if there's an error in the response data
+      if (data?.error) {
+        toast({
+          title: "Erreur d'envoi",
+          description: data.error,
+          variant: "destructive",
+        });
+        return;
       }
 
       toast({
@@ -57,8 +59,19 @@ export function GuideDownloadDialog({ open, onOpenChange }: GuideDownloadDialogP
 
       onOpenChange(false);
       setEmail("");
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error:', error);
+      
+      // Handle specific error cases
+      if (error.message?.includes('domain is not verified')) {
+        toast({
+          title: "Configuration requise",
+          description: "Le domaine d'envoi n'est pas encore vérifié. Veuillez patienter pendant que nous finalisons la configuration.",
+          variant: "destructive",
+        });
+        return;
+      }
+
       toast({
         title: "Une erreur est survenue",
         description: "Impossible de traiter votre demande pour le moment.",
