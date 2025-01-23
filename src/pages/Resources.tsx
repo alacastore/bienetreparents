@@ -31,7 +31,8 @@ const Resources = () => {
         .from('newsletter_subscriptions')
         .insert([{ email }]);
 
-      if (dbError && dbError.code !== '23505') { // Ignore duplicate email error
+      // Ignorer l'erreur de duplication d'email
+      if (dbError && dbError.code !== '23505') {
         throw dbError;
       }
 
@@ -41,6 +42,15 @@ const Resources = () => {
       });
 
       if (functionError) {
+        // Si l'erreur est liée à la validation Resend
+        if (functionError.message.includes('verify a domain')) {
+          toast({
+            title: "Mode test",
+            description: "Pendant la phase de test, seuls les emails vers alacastore@gmail.com sont autorisés.",
+            variant: "destructive",
+          });
+          return;
+        }
         throw functionError;
       }
 

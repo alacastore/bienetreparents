@@ -20,11 +20,9 @@ const handler = async (req: Request): Promise<Response> => {
 
   try {
     const { to } = await req.json() as EmailRequest;
-    
+    console.log("Sending guide to:", to);
+
     const guideUrl = "https://ojmwznedyfosvcbrgixx.supabase.co/storage/v1/object/public/guides/7-jours-parentalite-sereine.pdf";
-    
-    console.log("Sending email to:", to);
-    console.log("Guide URL:", guideUrl);
     
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -33,7 +31,7 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Bien-être des Parents <parents@resend.dev>",
+        from: "alacastore@gmail.com", // Utiliser l'email vérifié pendant la phase de test
         to: [to],
         subject: "Votre guide : 7 jours pour une parentalité sereine",
         html: `
@@ -47,28 +45,23 @@ const handler = async (req: Request): Promise<Response> => {
       }),
     });
 
-    console.log("Resend API response status:", res.status);
-    const responseText = await res.text();
-    console.log("Resend API response:", responseText);
+    const responseData = await res.json();
+    console.log("Resend API response:", responseData);
 
     if (!res.ok) {
-      throw new Error(`Failed to send email: ${responseText}`);
+      throw new Error(`Failed to send email: ${JSON.stringify(responseData)}`);
     }
 
-    const data = await JSON.parse(responseText);
-    return new Response(JSON.stringify(data), {
+    return new Response(JSON.stringify(responseData), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error in send-guide function:", error);
-    return new Response(
-      JSON.stringify({ error: error.message }),
-      {
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-        status: 500,
-      }
-    );
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 500,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
   }
 };
 
