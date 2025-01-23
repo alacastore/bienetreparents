@@ -31,7 +31,7 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "alacastore@gmail.com", // Utiliser l'email vérifié pendant la phase de test
+        from: "onboarding@resend.dev",
         to: [to],
         subject: "Votre guide : 7 jours pour une parentalité sereine",
         html: `
@@ -53,8 +53,8 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     return new Response(JSON.stringify(responseData), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (error: any) {
     console.error("Error in send-guide function:", error);

@@ -42,11 +42,11 @@ const Resources = () => {
       });
 
       if (functionError) {
-        // Si l'erreur est liée à la validation Resend
-        if (functionError.message.includes('verify a domain')) {
+        // Si l'erreur est liée à la validation du domaine
+        if (functionError.message.includes('domain is not verified')) {
           toast({
             title: "Mode test",
-            description: "Pendant la phase de test, seuls les emails vers alacastore@gmail.com sont autorisés.",
+            description: "Pendant la phase de test, seuls les emails depuis onboarding@resend.dev sont autorisés. Veuillez vérifier votre domaine sur resend.com/domains",
             variant: "destructive",
           });
           return;
