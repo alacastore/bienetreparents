@@ -10,18 +10,22 @@ import Navbar from "@/components/Navbar";
 
 export default function Blog() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const handleShare = useShare();
   
-  const filteredPosts = blogPosts.filter(post => 
-    post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    post.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredPosts = blogPosts.filter(post => {
+    const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.description.toLowerCase().includes(searchQuery.toLowerCase());
+    
+    const matchesCategory = selectedCategory === null || post.category === selectedCategory;
+    
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <div className="relative">
       <Navbar />
       <div className="container mx-auto px-4 py-8">
-        {/* SEO Meta Tags */}
         <title>Blog Bien-Être des Parents | Conseils et Astuces pour Parents</title>
         <meta
           name="description"
@@ -33,7 +37,11 @@ export default function Blog() {
           setSearchQuery={setSearchQuery}
         />
 
-        <BlogCategories categories={categories} />
+        <BlogCategories 
+          categories={categories} 
+          selectedCategory={selectedCategory}
+          onCategorySelect={setSelectedCategory}
+        />
 
         <RecentArticles 
           posts={filteredPosts}
@@ -45,7 +53,6 @@ export default function Blog() {
           onShare={handleShare}
         />
 
-        {/* Newsletter Section */}
         <section className="bg-accent rounded-lg p-8 mb-12">
           <NewsletterSignup />
         </section>
