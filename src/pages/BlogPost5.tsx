@@ -1,6 +1,5 @@
 import { Share2, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { useToast } from "@/hooks/use-toast";
 import { RelatedPosts } from "@/components/RelatedPosts";
 import { blogPosts } from "@/data/blogData";
@@ -68,96 +67,81 @@ export default function BlogPost5() {
 
         <article className="prose prose-lg max-w-none">
           <p className="lead">
-            Une routine matinale bien structurée peut transformer votre journée. 
-            Découvrez comment créer des habitudes matinales qui vous permettront 
-            de commencer chaque jour avec calme et énergie.
+            Le stress parental est une réalité quotidienne pour de nombreux parents. 
+            Découvrez 5 techniques efficaces pour le gérer et retrouver votre sérénité.
           </p>
 
-          <h2>Pourquoi une Routine Matinale Change Tout</h2>
+          <h2>1. La Technique de la Respiration 4-7-8</h2>
           <p>
-            Les premières heures de la journée déterminent souvent le ton pour le reste 
-            de la journée. Une routine efficace peut vous aider à :
+            Cette technique simple mais puissante peut être pratiquée n'importe où, n'importe quand :
           </p>
           <ul>
-            <li>Réduire le stress matinal</li>
-            <li>Augmenter votre productivité</li>
-            <li>Améliorer votre bien-être général</li>
-            <li>Créer des moments de qualité en famille</li>
+            <li>Inspirez pendant 4 secondes</li>
+            <li>Retenez votre respiration pendant 7 secondes</li>
+            <li>Expirez lentement pendant 8 secondes</li>
+            <li>Répétez 3-4 fois</li>
           </ul>
 
-          <h2>3 Étapes Clés pour une Routine Matinale Sereine</h2>
-          
-          <h3>1. Se Lever 15 Minutes Plus Tôt</h3>
+          <h2>2. La Pause Consciente de 2 Minutes</h2>
           <p>
-            Ces quelques minutes supplémentaires peuvent faire toute la différence :
+            Lorsque vous sentez la tension monter :
           </p>
           <ul>
-            <li>Évitez de consulter votre téléphone immédiatement</li>
-            <li>Prenez le temps de vous étirer doucement</li>
-            <li>Buvez un grand verre d'eau</li>
-            <li>Profitez du calme avant le réveil des enfants</li>
+            <li>Arrêtez tout ce que vous faites</li>
+            <li>Fermez les yeux</li>
+            <li>Concentrez-vous sur vos sensations physiques</li>
+            <li>Observez vos pensées sans les juger</li>
           </ul>
 
-          <h3>2. Inclure une Activité Apaisante</h3>
+          <h2>3. L'Ancrage par les 5 Sens</h2>
           <p>
-            Choisissez une activité qui vous ressource :
+            Pratiquez cet exercice pour vous reconnecter au moment présent :
           </p>
           <ul>
-            <li>Méditation de 5 minutes</li>
-            <li>Exercices de respiration</li>
-            <li>Yoga doux</li>
-            <li>Lecture inspirante</li>
-            <li>Journal intime</li>
+            <li>Identifiez 5 choses que vous voyez</li>
+            <li>4 choses que vous pouvez toucher</li>
+            <li>3 sons que vous entendez</li>
+            <li>2 odeurs que vous percevez</li>
+            <li>1 goût que vous ressentez</li>
           </ul>
 
-          <h3>3. Planifier sa Journée</h3>
+          <h2>4. La Visualisation Positive</h2>
           <p>
-            Prenez 5 minutes pour organiser votre journée :
+            Prenez un moment pour :
           </p>
           <ul>
-            <li>Notez vos 3 priorités principales</li>
-            <li>Consultez votre agenda</li>
-            <li>Préparez votre liste de tâches</li>
-            <li>Anticipez les besoins de la famille</li>
+            <li>Imaginer un lieu apaisant</li>
+            <li>Visualiser des moments de joie avec vos enfants</li>
+            <li>Vous rappeler vos succès parentaux</li>
+            <li>Projeter une résolution positive de la situation stressante</li>
           </ul>
 
-          <h2>Conseils pour Maintenir votre Routine</h2>
+          <h2>5. Le Journal des Gratitudes</h2>
           <p>
-            Pour que votre routine matinale devienne une habitude :
+            Chaque soir, notez :
           </p>
           <ul>
-            <li>Commencez progressivement avec de petits changements</li>
-            <li>Préparez ce que vous pouvez la veille</li>
-            <li>Adaptez votre routine selon les jours</li>
-            <li>Soyez indulgent avec vous-même</li>
+            <li>3 moments positifs de votre journée de parent</li>
+            <li>2 qualités que vous appréciez chez votre enfant</li>
+            <li>1 chose pour laquelle vous êtes reconnaissant(e)</li>
           </ul>
 
-          <h2>Impliquer les Enfants</h2>
+          <h2>Mettre ces Techniques en Pratique</h2>
           <p>
-            Créez une routine qui inclut toute la famille :
+            Pour intégrer ces techniques dans votre quotidien :
           </p>
           <ul>
-            <li>Établissez des rituels du matin amusants</li>
-            <li>Responsabilisez les enfants avec des tâches adaptées</li>
-            <li>Créez un tableau visuel de la routine</li>
-            <li>Célébrez les petites victoires</li>
-          </ul>
-
-          <h2>Gérer les Imprévus</h2>
-          <p>
-            Même la meilleure routine peut être perturbée :
-          </p>
-          <ul>
-            <li>Ayez un plan B pour les jours difficiles</li>
-            <li>Restez flexible et adaptable</li>
-            <li>Concentrez-vous sur l'essentiel</li>
+            <li>Commencez par une seule technique à la fois</li>
+            <li>Pratiquez régulièrement, même quand vous n'êtes pas stressé(e)</li>
+            <li>Adaptez ces techniques à votre situation</li>
+            <li>Partagez-les avec votre partenaire ou d'autres parents</li>
           </ul>
 
           <h2>Conclusion</h2>
           <p>
-            Adopter une routine matinale n'a pas besoin d'être compliqué. 
-            Commencez petit, ajustez selon vos besoins, et observez les 
-            changements positifs dans votre quotidien familial.
+            Le stress parental est normal, mais il ne doit pas prendre le contrôle 
+            de votre vie. En pratiquant régulièrement ces techniques, vous développerez 
+            une plus grande résilience face aux défis quotidiens de la parentalité.
           </p>
         </article>
 
