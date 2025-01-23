@@ -1,77 +1,13 @@
 import { Helmet } from "react-helmet";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Download, PlayCircle, Headphones, CheckSquare } from "lucide-react";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
-import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
+import { GuideDownloadDialog } from "@/components/resources/GuideDownloadDialog";
+import { ResourceCard } from "@/components/resources/ResourceCard";
+import { ResourceSection } from "@/components/resources/ResourceSection";
 
 const Resources = () => {
   const [showEmailDialog, setShowEmailDialog] = useState(false);
-  const [email, setEmail] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
-
-  const handleDownload = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    try {
-      // 1. Save to newsletter
-      const { error: dbError } = await supabase
-        .from('newsletter_subscriptions')
-        .insert([{ email }]);
-
-      // Ignorer l'erreur de duplication d'email
-      if (dbError && dbError.code !== '23505') {
-        throw dbError;
-      }
-
-      // 2. Send email with guide
-      const { error: functionError } = await supabase.functions.invoke('send-guide', {
-        body: { to: email }
-      });
-
-      if (functionError) {
-        // Message spécifique pour le mode test
-        if (functionError.message.includes('alacastore@gmail.com')) {
-          toast({
-            title: "Mode test",
-            description: "Pendant la phase de test, seuls les emails vers alacastore@gmail.com sont autorisés. Pour envoyer à d'autres adresses, veuillez vérifier un domaine sur resend.com/domains",
-            variant: "destructive",
-          });
-          return;
-        }
-        throw functionError;
-      }
-
-      toast({
-        title: "Guide envoyé !",
-        description: "Vérifiez votre boîte mail pour télécharger votre guide. Si vous ne le trouvez pas, pensez à vérifier vos spams.",
-      });
-
-      setShowEmailDialog(false);
-      setEmail("");
-    } catch (error) {
-      console.error('Error:', error);
-      toast({
-        title: "Une erreur est survenue",
-        description: "Impossible de traiter votre demande pour le moment.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -93,87 +29,44 @@ const Resources = () => {
         </p>
 
         {/* Guides Pratiques */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-heading font-semibold mb-8">Nos guides pratiques</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Download className="h-5 w-5 text-primary" />
-                  7 Jours pour une Parentalité Sereine
-                </CardTitle>
-                <CardDescription>
-                  Un guide étape par étape pour transformer votre quotidien de parent
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button 
-                  className="w-full"
-                  onClick={() => setShowEmailDialog(true)}
-                >
-                  Télécharger le guide
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
+        <ResourceSection title="Nos guides pratiques">
+          <ResourceCard
+            icon={Download}
+            title="7 Jours pour une Parentalité Sereine"
+            description="Un guide étape par étape pour transformer votre quotidien de parent"
+            buttonText="Télécharger le guide"
+            onClick={() => setShowEmailDialog(true)}
+          />
+        </ResourceSection>
 
         {/* Vidéos et Podcasts */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-heading font-semibold mb-8">Vidéos et Podcasts</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <PlayCircle className="h-5 w-5 text-primary" />
-                  Exercices de relaxation express
-                </CardTitle>
-                <CardDescription>
-                  Des exercices simples et rapides pour les parents débordés
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="secondary" className="w-full">Regarder la vidéo</Button>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Headphones className="h-5 w-5 text-primary" />
-                  Équilibrer vie pro et vie familiale
-                </CardTitle>
-                <CardDescription>
-                  Conseils pratiques pour mieux gérer son temps
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="secondary" className="w-full">Écouter le podcast</Button>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
+        <ResourceSection title="Vidéos et Podcasts">
+          <ResourceCard
+            icon={PlayCircle}
+            title="Exercices de relaxation express"
+            description="Des exercices simples et rapides pour les parents débordés"
+            buttonText="Regarder la vidéo"
+            buttonVariant="secondary"
+          />
+          <ResourceCard
+            icon={Headphones}
+            title="Équilibrer vie pro et vie familiale"
+            description="Conseils pratiques pour mieux gérer son temps"
+            buttonText="Écouter le podcast"
+            buttonVariant="secondary"
+          />
+        </ResourceSection>
 
         {/* Checklists et Modèles */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-heading font-semibold mb-8">Checklists et Modèles</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <CheckSquare className="h-5 w-5 text-primary" />
-                  Routine matinale pour parents occupés
-                </CardTitle>
-                <CardDescription>
-                  Une checklist pour des matins plus sereins
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="outline" className="w-full">Télécharger la checklist</Button>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
+        <ResourceSection title="Checklists et Modèles">
+          <ResourceCard
+            icon={CheckSquare}
+            title="Routine matinale pour parents occupés"
+            description="Une checklist pour des matins plus sereins"
+            buttonText="Télécharger la checklist"
+            buttonVariant="outline"
+          />
+        </ResourceSection>
 
         {/* Newsletter Section */}
         <section className="bg-accent rounded-lg p-8 mt-16">
@@ -181,28 +74,10 @@ const Resources = () => {
         </section>
       </main>
 
-      <Dialog open={showEmailDialog} onOpenChange={setShowEmailDialog}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle>Téléchargez votre guide gratuit</DialogTitle>
-            <DialogDescription>
-              Entrez votre email pour recevoir le guide "7 Jours pour une Parentalité Sereine" et nos conseils hebdomadaires.
-            </DialogDescription>
-          </DialogHeader>
-          <form onSubmit={handleDownload} className="space-y-4">
-            <Input
-              type="email"
-              placeholder="Votre email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? "Traitement en cours..." : "Télécharger le guide"}
-            </Button>
-          </form>
-        </DialogContent>
-      </Dialog>
+      <GuideDownloadDialog
+        open={showEmailDialog}
+        onOpenChange={setShowEmailDialog}
+      />
     </div>
   );
 };
