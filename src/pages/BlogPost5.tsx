@@ -4,7 +4,6 @@ import { useToast } from "@/hooks/use-toast";
 import { RelatedPosts } from "@/components/RelatedPosts";
 import { blogPosts } from "@/data/blogData";
 import { useNavigate } from "react-router-dom";
-import Navbar from "@/components/Navbar";
 import { useState } from "react";
 import { GuideDownloadDialog } from "@/components/resources/GuideDownloadDialog";
 
