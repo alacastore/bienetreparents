@@ -46,7 +46,7 @@ const Resources = () => {
 
       toast({
         title: "Guide envoyé !",
-        description: "Vérifiez votre boîte mail pour télécharger votre guide.",
+        description: "Vérifiez votre boîte mail pour télécharger votre guide. Si vous ne le trouvez pas, pensez à vérifier vos spams.",
       });
 
       setShowEmailDialog(false);
