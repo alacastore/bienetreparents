@@ -13,6 +13,7 @@ interface EmailRequest {
 }
 
 const handler = async (req: Request): Promise<Response> => {
+  // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -22,6 +23,9 @@ const handler = async (req: Request): Promise<Response> => {
     
     const guideUrl = "https://ojmwznedyfosvcbrgixx.supabase.co/storage/v1/object/public/guides/7-jours-parentalite-sereine.pdf";
     
+    console.log("Sending email to:", to);
+    console.log("Guide URL:", guideUrl);
+    
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -29,7 +33,7 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Bien-être des Parents <onboarding@resend.dev>",
+        from: "Bien-être des Parents <parents@resend.dev>",
         to: [to],
         subject: "Votre guide : 7 jours pour une parentalité sereine",
         html: `
@@ -43,16 +47,21 @@ const handler = async (req: Request): Promise<Response> => {
       }),
     });
 
+    console.log("Resend API response status:", res.status);
+    const responseText = await res.text();
+    console.log("Resend API response:", responseText);
+
     if (!res.ok) {
-      throw new Error(`Failed to send email: ${await res.text()}`);
+      throw new Error(`Failed to send email: ${responseText}`);
     }
 
-    const data = await res.json();
+    const data = await JSON.parse(responseText);
     return new Response(JSON.stringify(data), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
     });
   } catch (error) {
+    console.error("Error in send-guide function:", error);
     return new Response(
       JSON.stringify({ error: error.message }),
       {
