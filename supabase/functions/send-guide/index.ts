@@ -22,6 +22,11 @@ const handler = async (req: Request): Promise<Response> => {
     const { to } = await req.json() as EmailRequest;
     console.log("Sending guide to:", to);
 
+    // Pendant la phase de test, on ne peut envoyer qu'à l'adresse vérifiée
+    if (to !== "alacastore@gmail.com") {
+      throw new Error("TEST_MODE_RESTRICTED_EMAIL");
+    }
+
     const guideUrl = "https://ojmwznedyfosvcbrgixx.supabase.co/storage/v1/object/public/guides/7-jours-parentalite-sereine.pdf";
     
     const res = await fetch("https://api.resend.com/emails", {
@@ -58,6 +63,19 @@ const handler = async (req: Request): Promise<Response> => {
     });
   } catch (error: any) {
     console.error("Error in send-guide function:", error);
+    
+    // Message d'erreur personnalisé pour le mode test
+    if (error.message === "TEST_MODE_RESTRICTED_EMAIL") {
+      return new Response(
+        JSON.stringify({ 
+          error: "En mode test, seuls les emails vers alacastore@gmail.com sont autorisés. Pour envoyer à d'autres adresses, veuillez vérifier un domaine sur resend.com/domains"
+        }), {
+          status: 403,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
+
     return new Response(JSON.stringify({ error: error.message }), {
       status: 500,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
