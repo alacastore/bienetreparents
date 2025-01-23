@@ -31,7 +31,7 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Bien-être des Parents <contact@votredomaine.com>", // Remplacez par votre domaine vérifié
+        from: "Bien-être des Parents <contact@bienetreparents.fr>",
         to: [to],
         subject: "Votre guide : 7 jours pour une parentalité sereine",
         html: `
