@@ -44,7 +44,7 @@ export default function Blog() {
         />
 
         <RecentArticles 
-          posts={filteredPosts}
+          posts={filteredPosts.reverse()}
           onShare={handleShare}
         />
 
