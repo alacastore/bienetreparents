@@ -6,15 +6,18 @@ import { RelatedPosts } from "@/components/RelatedPosts";
 import { blogPosts } from "@/data/blogData";
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
+import { useState } from "react";
+import { GuideDownloadDialog } from "@/components/resources/GuideDownloadDialog";
 
 export default function BlogPost5() {
   const { toast } = useToast();
   const navigate = useNavigate();
+  const [showGuideDialog, setShowGuideDialog] = useState(false);
 
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: "Routine Matinale pour Parents : Commencez la Journée Sereinement",
+        title: "5 Techniques pour Gérer le Stress Parental",
         url: window.location.href,
       });
     } else {
@@ -43,18 +46,18 @@ export default function BlogPost5() {
 
         <div className="mb-8">
           <img
-            src="/lovable-uploads/2a51a3d6-b4b1-4f5c-9c48-bc3d00963d3a.png"
-            alt="Parent commençant sa journée sereinement"
+            src="/lovable-uploads/a565a03e-c070-49b9-bf82-15bf64e4635a.png"
+            alt="Parent gérant le stress"
             className="w-full h-[400px] object-cover rounded-lg mb-6"
           />
           <h1 className="hero-title mb-4">
-            Routine Matinale pour Parents : Commencez la Journée Sereinement
+            5 Techniques pour Gérer le Stress Parental
           </h1>
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-4">
               <span className="text-gray-600">7 min de lecture</span>
               <span className="bg-accent px-3 py-1 rounded-full text-sm">
-                Organisation familiale
+                Stress parental
               </span>
             </div>
             <Button variant="outline" size="icon" onClick={handleShare}>
@@ -163,14 +166,21 @@ export default function BlogPost5() {
             Envie d'aller plus loin ?
           </h3>
           <p className="mb-6">
-            Recevez notre guide gratuit pour créer votre routine matinale personnalisée 
-            et des conseils hebdomadaires pour l'améliorer.
+            Téléchargez notre guide gratuit "7 Jours pour une Parentalité Sereine" 
+            et recevez nos conseils hebdomadaires pour une parentalité plus épanouie.
           </p>
-          <NewsletterSignup />
+          <Button onClick={() => setShowGuideDialog(true)}>
+            Télécharger le guide gratuit
+          </Button>
         </div>
 
         <RelatedPosts currentPostId={5} posts={blogPosts} />
       </div>
+
+      <GuideDownloadDialog 
+        open={showGuideDialog} 
+        onOpenChange={setShowGuideDialog} 
+      />
     </div>
   );
 }
