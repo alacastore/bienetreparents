@@ -36,20 +36,12 @@ const Resources = () => {
       }
 
       // 2. Send email with guide
-      const response = await fetch(
-        "https://ojmwznedyfosvcbrgixx.supabase.co/functions/v1/send-guide",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${process.env.SUPABASE_ANON_KEY}`,
-          },
-          body: JSON.stringify({ to: email }),
-        }
-      );
+      const { error: functionError } = await supabase.functions.invoke('send-guide', {
+        body: { to: email }
+      });
 
-      if (!response.ok) {
-        throw new Error("Erreur lors de l'envoi de l'email");
+      if (functionError) {
+        throw functionError;
       }
 
       toast({
