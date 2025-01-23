@@ -15,7 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
-import Navbar from "@/components/Navbar";
+import { supabase } from "@/integrations/supabase/client";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -40,13 +40,29 @@ const Contact = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Message envoyé !",
-      description: "Nous vous répondrons dans les plus brefs délais.",
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const { error } = await supabase.functions.invoke('send-contact', {
+        body: values
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Message envoyé !",
+        description: "Nous vous répondrons dans les plus brefs délais.",
+      });
+      form.reset();
+    } catch (error) {
+      console.error('Error sending contact form:', error);
+      toast({
+        variant: "destructive",
+        title: "Erreur",
+        description: "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.",
+      });
+    }
   }
 
   return (
@@ -58,8 +74,6 @@ const Contact = () => {
           content="Besoin d'aide ou de conseils ? Contactez l'équipe de Bien-Être des Parents via notre formulaire ou par e-mail. Nous sommes là pour vous."
         />
       </Helmet>
-
-      <Navbar />
 
       <main className="container mx-auto px-4 py-8 max-w-4xl">
         <h1 className="text-4xl font-heading font-bold text-center mb-8">
