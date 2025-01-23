@@ -29,7 +29,6 @@ export default function BlogPost5() {
 
   return (
     <div className="relative">
-      <Navbar />
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         <div className="mb-6">
           <Button
@@ -152,7 +151,11 @@ export default function BlogPost5() {
             Téléchargez notre guide gratuit "7 Jours pour une Parentalité Sereine" 
             et recevez nos conseils hebdomadaires pour une parentalité plus épanouie.
           </p>
-          <Button onClick={() => setShowGuideDialog(true)}>
+          <Button 
+            size="lg"
+            className="w-full md:w-auto"
+            onClick={() => setShowGuideDialog(true)}
+          >
             Télécharger le guide gratuit
           </Button>
         </div>
