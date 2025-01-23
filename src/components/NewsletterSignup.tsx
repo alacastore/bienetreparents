@@ -3,13 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
 
 interface NewsletterSignupProps {
   onSuccess?: () => void;
@@ -18,7 +11,7 @@ interface NewsletterSignupProps {
 export function NewsletterSignup({ onSuccess }: NewsletterSignupProps) {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [showThankYouDialog, setShowThankYouDialog] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -40,10 +33,12 @@ export function NewsletterSignup({ onSuccess }: NewsletterSignupProps) {
           throw error;
         }
       } else {
-        if (onSuccess) {
-          onSuccess();
-        }
-        setEmail("");
+        setIsSuccess(true);
+        setTimeout(() => {
+          if (onSuccess) {
+            onSuccess();
+          }
+        }, 2000); // Ferme le popup après 2 secondes
       }
     } catch (error) {
       console.error('Error subscribing to newsletter:', error);
@@ -56,6 +51,19 @@ export function NewsletterSignup({ onSuccess }: NewsletterSignupProps) {
       setIsLoading(false);
     }
   };
+
+  if (isSuccess) {
+    return (
+      <div className="text-center py-8">
+        <h2 className="text-2xl font-heading font-semibold mb-4 text-green-600">
+          Merci de votre inscription !
+        </h2>
+        <p className="text-gray-600">
+          Vous recevrez bientôt nos conseils hebdomadaires pour simplifier votre vie de parent.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="text-center">
