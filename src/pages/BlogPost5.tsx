@@ -152,7 +152,7 @@ export default function BlogPost5() {
             et recevez nos conseils hebdomadaires pour une parentalité plus épanouie.
           </p>
           <Button 
-            size="lg"
+            size="lg" 
             className="w-full md:w-auto"
             onClick={() => setShowGuideDialog(true)}
           >
@@ -164,8 +164,8 @@ export default function BlogPost5() {
       </div>
 
       <GuideDownloadDialog 
-        open={showGuideDialog} 
-        onOpenChange={setShowGuideDialog} 
+        open={showGuideDialog}
+        onOpenChange={setShowGuideDialog}
       />
     </div>
   );
