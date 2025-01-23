@@ -26,14 +26,17 @@ export function GuideDownloadDialog({ open, onOpenChange }: GuideDownloadDialogP
     setIsLoading(true);
 
     try {
+      // Tentative d'insertion dans la newsletter
       const { error: dbError } = await supabase
         .from('newsletter_subscriptions')
         .insert([{ email }]);
 
+      // Si l'email existe déjà, on continue quand même avec l'envoi du guide
       if (dbError && dbError.code !== '23505') {
         throw dbError;
       }
 
+      // Envoi du guide par email
       const { error: functionError, data } = await supabase.functions.invoke('send-guide', {
         body: { to: email }
       });
