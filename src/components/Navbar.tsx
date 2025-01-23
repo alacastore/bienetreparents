@@ -18,6 +18,10 @@ const Navbar = () => {
     { name: "Contact", path: "/contact" },
   ];
 
+  const handleNewsletterSuccess = () => {
+    setShowNewsletter(false);
+  };
+
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 bg-white shadow-sm z-[9999]">
@@ -107,7 +111,7 @@ const Navbar = () => {
 
       <Dialog open={showNewsletter} onOpenChange={setShowNewsletter}>
         <DialogContent className="sm:max-w-[500px]">
-          <NewsletterSignup />
+          <NewsletterSignup onSuccess={handleNewsletterSuccess} />
         </DialogContent>
       </Dialog>
     </>
