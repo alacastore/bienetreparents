@@ -123,7 +123,10 @@ export default function BlogPost7() {
         </div>
       </article>
 
-      <BlogNewsletter />
+      <BlogNewsletter 
+        title="Restez informé"
+        description="Recevez nos derniers articles et conseils directement dans votre boîte mail."
+      />
     </div>
   );
 }

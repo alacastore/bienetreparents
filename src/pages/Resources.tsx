@@ -5,9 +5,52 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { GuideDownloadDialog } from "@/components/resources/GuideDownloadDialog";
 import { ResourceCard } from "@/components/resources/ResourceCard";
 import { ResourceSection } from "@/components/resources/ResourceSection";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const Resources = () => {
   const [showEmailDialog, setShowEmailDialog] = useState(false);
+  const { toast } = useToast();
+
+  const handleChecklistDownload = async () => {
+    try {
+      const { data, error } = await supabase.storage
+        .from('guides')
+        .download('checklist-routine-matinale.pdf');
+
+      if (error) {
+        throw error;
+      }
+
+      // Créer un URL pour le fichier téléchargé
+      const url = window.URL.createObjectURL(data);
+      
+      // Créer un lien temporaire pour le téléchargement
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'checklist-routine-matinale.pdf';
+      
+      // Déclencher le téléchargement
+      document.body.appendChild(link);
+      link.click();
+      
+      // Nettoyer
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+
+      toast({
+        title: "Téléchargement réussi",
+        description: "Votre checklist a été téléchargée avec succès.",
+      });
+    } catch (error) {
+      console.error('Erreur lors du téléchargement:', error);
+      toast({
+        title: "Erreur de téléchargement",
+        description: "Impossible de télécharger la checklist pour le moment.",
+        variant: "destructive",
+      });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -65,6 +108,7 @@ const Resources = () => {
             description="Une checklist pour des matins plus sereins"
             buttonText="Télécharger la checklist"
             buttonVariant="outline"
+            onClick={handleChecklistDownload}
           />
         </ResourceSection>
 
