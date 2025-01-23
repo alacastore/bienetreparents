@@ -22,18 +22,6 @@ const handler = async (req: Request): Promise<Response> => {
     const { to } = await req.json() as EmailRequest;
     console.log("Sending guide to:", to);
 
-    // En mode test, on ne peut envoyer qu'à l'adresse vérifiée
-    if (to !== "alacastore@gmail.com") {
-      return new Response(
-        JSON.stringify({ 
-          error: "En mode test, seuls les emails vers alacastore@gmail.com sont autorisés. Pour envoyer à d'autres adresses, veuillez vérifier un domaine sur resend.com/domains"
-        }), {
-          status: 403,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        }
-      );
-    }
-
     const guideUrl = "https://ojmwznedyfosvcbrgixx.supabase.co/storage/v1/object/public/guides/7-jours-parentalite-sereine.pdf";
     
     const res = await fetch("https://api.resend.com/emails", {
@@ -43,7 +31,7 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "onboarding@resend.dev", // À remplacer par votre domaine vérifié
+        from: "Bien-être des Parents <contact@votredomaine.com>", // Remplacez par votre domaine vérifié
         to: [to],
         subject: "Votre guide : 7 jours pour une parentalité sereine",
         html: `
@@ -63,7 +51,7 @@ const handler = async (req: Request): Promise<Response> => {
     if (!res.ok) {
       const error = responseData;
       console.error("Resend API error:", error);
-      return new Response(JSON.stringify({ error: error.message }), {
+      return new Response(JSON.stringify({ error: "Failed to send email: " + JSON.stringify(error) }), {
         status: res.status,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
