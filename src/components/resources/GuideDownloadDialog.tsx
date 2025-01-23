@@ -42,13 +42,21 @@ export function GuideDownloadDialog({ open, onOpenChange }: GuideDownloadDialogP
         throw functionError;
       }
 
-      // Check if there's an error in the response data
+      // Vérifier s'il y a une erreur dans la réponse
       if (data?.error) {
-        toast({
-          title: "Erreur d'envoi",
-          description: data.error,
-          variant: "destructive",
-        });
+        if (data.error.includes("En mode test")) {
+          toast({
+            title: "Mode test",
+            description: data.error,
+            variant: "destructive",
+          });
+        } else {
+          toast({
+            title: "Erreur d'envoi",
+            description: data.error,
+            variant: "destructive",
+          });
+        }
         return;
       }
 
@@ -61,17 +69,6 @@ export function GuideDownloadDialog({ open, onOpenChange }: GuideDownloadDialogP
       setEmail("");
     } catch (error: any) {
       console.error('Error:', error);
-      
-      // Handle specific error cases
-      if (error.message?.includes('domain is not verified')) {
-        toast({
-          title: "Configuration requise",
-          description: "Le domaine d'envoi n'est pas encore vérifié. Veuillez patienter pendant que nous finalisons la configuration.",
-          variant: "destructive",
-        });
-        return;
-      }
-
       toast({
         title: "Une erreur est survenue",
         description: "Impossible de traiter votre demande pour le moment.",
