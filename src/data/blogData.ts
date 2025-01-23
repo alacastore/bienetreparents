@@ -51,6 +51,14 @@ export const blogPosts: BlogPost[] = [
     category: "Organisation familiale",
     image: "/lovable-uploads/23582736-efba-4f04-aaaf-ef211b8d32d3.png",
     slug: "routine-familiale-apaisante",
+  },
+  {
+    id: 7,
+    title: "Les Statistiques Révélatrices sur les Problèmes des Parents en 2025",
+    description: "Découvrez les statistiques révélatrices sur les problèmes des parents en 2025. Charge mentale, stress, finances, et isolement : les chiffres à connaître.",
+    category: "Études et statistiques",
+    image: "/lovable-uploads/9bfd165d-2047-442d-bbaf-230f2d975b19.png",
+    slug: "statistiques-problemes-parents-2025",
   }
 ];
 
@@ -58,5 +66,6 @@ export const categories = [
   "Stress parental",
   "Organisation familiale",
   "Temps pour soi",
-  "Bien-être mental"
+  "Bien-être mental",
+  "Études et statistiques"
 ];

@@ -12,6 +12,7 @@ import BlogPost3 from "./pages/BlogPost3";
 import BlogPost4 from "./pages/BlogPost4";
 import BlogPost5 from "./pages/BlogPost5";
 import BlogPost6 from "./pages/BlogPost6";
+import BlogPost7 from "./pages/BlogPost7";
 import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
 import Legal from "./pages/Legal";
@@ -45,6 +46,7 @@ const App = () => {
                   <Route path="/blog/exercices-relaxation-parents" element={<BlogPost4 />} />
                   <Route path="/blog/routine-matinale-parents" element={<BlogPost5 />} />
                   <Route path="/blog/routine-familiale-apaisante" element={<BlogPost6 />} />
+                  <Route path="/blog/statistiques-problemes-parents-2025" element={<BlogPost7 />} />
                   <Route path="/ressources" element={<Resources />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/mentions-legales" element={<Legal />} />
