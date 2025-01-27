@@ -129,9 +129,6 @@ export default function BlogPost2() {
 
         {/* CTA Section */}
         <div className="my-12 p-8 bg-accent rounded-lg">
-          <h3 className="text-2xl font-heading font-semibold mb-4">
-            Ne manquez pas nos conseils hebdomadaires
-          </h3>
           <NewsletterSignup />
         </div>
 
