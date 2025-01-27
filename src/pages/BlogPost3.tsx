@@ -131,13 +131,6 @@ export default function BlogPost3() {
 
         {/* CTA Section */}
         <div className="my-12 p-8 bg-accent rounded-lg">
-          <h3 className="text-2xl font-heading font-semibold mb-4">
-            Besoin de plus de conseils ?
-          </h3>
-          <p className="mb-6">
-            Inscrivez-vous à notre newsletter pour recevoir des conseils hebdomadaires 
-            sur l'organisation et le bien-être parental.
-          </p>
           <NewsletterSignup />
         </div>
 
