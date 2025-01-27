@@ -142,10 +142,7 @@ export default function BlogPost4() {
         </p>
         </article>
 
-        <BlogNewsletter
-          title="Besoin de plus d'exercices ?"
-          description="Téléchargez notre guide complet d'exercices de relaxation pour parents débordés et recevez des conseils hebdomadaires directement dans votre boîte mail."
-        />
+        <BlogNewsletter />
 
         <RelatedPosts currentPostId={4} posts={blogPosts} />
       </div>

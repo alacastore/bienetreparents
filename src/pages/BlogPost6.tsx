@@ -57,10 +57,7 @@ export default function BlogPost6() {
               Recevez gratuitement notre guide pratique pour mettre en place une routine 
               qui fonctionne pour toute la famille.
             </p>
-            <BlogNewsletter 
-              title="Recevez notre guide de routine familiale"
-              description="Inscrivez-vous pour recevoir notre guide complet et commencez à transformer votre quotidien familial dès aujourd'hui."
-            />
+            <BlogNewsletter />
           </div>
         </div>
 
