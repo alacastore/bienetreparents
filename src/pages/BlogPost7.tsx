@@ -4,6 +4,8 @@ import { BlogNewsletter } from "@/components/blog/BlogNewsletter";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ChartBar, DollarSign, Clock, Heart, Users, Smartphone, Percent } from "lucide-react";
+import { RelatedPosts } from "@/components/RelatedPosts";
+import { blogPosts } from "@/data/blogData";
 
 export default function BlogPost7() {
   return (
@@ -127,6 +129,9 @@ export default function BlogPost7() {
         title="Restez informé"
         description="Recevez nos derniers articles et conseils directement dans votre boîte mail."
       />
+
+      {/* Section Articles Similaires */}
+      <RelatedPosts currentPostId={7} posts={blogPosts} />
     </div>
   );
 }
