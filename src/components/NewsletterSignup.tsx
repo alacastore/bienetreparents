@@ -19,8 +19,8 @@ export function NewsletterSignup({ onSuccess }: NewsletterSignupProps) {
     setIsLoading(true);
 
     try {
-      const { error } = await supabase
-        .from('newsletter_subscriptions' as any)
+      const { error } = await (supabase as any)
+        .from('newsletter_subscriptions')
         .insert([{ email }]);
 
       if (error) {

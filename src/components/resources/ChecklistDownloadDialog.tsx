@@ -27,8 +27,8 @@ export function ChecklistDownloadDialog({ open, onOpenChange }: ChecklistDownloa
 
     try {
       // Tentative d'insertion dans la newsletter
-      const { error: dbError } = await supabase
-        .from('newsletter_subscriptions' as any)
+      const { error: dbError } = await (supabase as any)
+        .from('newsletter_subscriptions')
         .insert([{ email }]);
 
       // Si l'email existe déjà, on continue quand même avec l'envoi de la checklist
