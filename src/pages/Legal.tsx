@@ -7,10 +7,10 @@ const Legal = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Mentions Légales - bienetreparents.fr</title>
+        <title>Mentions Légales - bienetreparents.org</title>
         <meta
           name="description"
-          content="Mentions légales du site bienetreparents.fr. Découvrez nos termes et conditions d'utilisation."
+          content="Mentions légales du site bienetreparents.org. Découvrez nos termes et conditions d'utilisation."
         />
       </Helmet>
 
@@ -22,7 +22,7 @@ const Legal = () => {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">Préambule</h2>
           <p>
-            Les présentes Mentions Légales régissent l'accès et l'utilisation du site <strong>bienetreparents.fr</strong> (ci-après "le Site"). 
+            Les présentes Mentions Légales régissent l'accès et l'utilisation du site <strong>bienetreparents.org</strong> (ci-après "le Site"). 
             En accédant au Site, vous acceptez sans réserve les présentes mentions légales.
           </p>
         </section>
@@ -31,7 +31,7 @@ const Legal = () => {
           <h2 className="text-2xl font-semibold mb-4">1. Informations générales</h2>
           <p><strong>Nom du site :</strong> Bien-Être des Parents</p>
           <p><strong>Propriétaire :</strong> [Nom ou raison sociale du propriétaire]</p>
-          <p><strong>Adresse e-mail :</strong> contact@bienetreparents.fr</p>
+          <p><strong>Adresse e-mail :</strong> info@bienetreparents.org</p>
         </section>
 
         <section className="mb-8">
@@ -117,8 +117,8 @@ const Legal = () => {
           <h2 className="text-2xl font-semibold mb-4">Contact</h2>
           <p>
             Pour toute question relative aux présentes mentions légales, vous pouvez nous contacter à l'adresse suivante : 
-            <a href="mailto:contact@bienetreparents.fr" className="text-primary hover:underline ml-1">
-              contact@bienetreparents.fr
+            <a href="mailto:info@bienetreparents.org" className="text-primary hover:underline ml-1">
+              info@bienetreparents.org
             </a>
           </p>
         </section>

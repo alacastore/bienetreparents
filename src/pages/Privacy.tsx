@@ -6,10 +6,10 @@ const Privacy = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Politique de Confidentialité - bienetreparents.fr</title>
+        <title>Politique de Confidentialité - bienetreparents.org</title>
         <meta
           name="description"
-          content="Politique de confidentialité du site bienetreparents.fr. Découvrez comment nous protégeons vos données personnelles."
+          content="Politique de confidentialité du site bienetreparents.org. Découvrez comment nous protégeons vos données personnelles."
         />
       </Helmet>
 
@@ -21,7 +21,7 @@ const Privacy = () => {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
           <p>
-            La présente politique de confidentialité décrit comment le site <strong>bienetreparents.fr</strong> collecte, 
+            La présente politique de confidentialité décrit comment le site <strong>bienetreparents.org</strong> collecte, 
             utilise, conserve et protège vos données personnelles conformément aux réglementations en vigueur, notamment 
             le Règlement Général sur la Protection des Données (RGPD).
           </p>
@@ -29,10 +29,10 @@ const Privacy = () => {
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">Responsable du traitement des données</h2>
-          <p><strong>Nom du site :</strong> bienetreparents.fr</p>
+          <p><strong>Nom du site :</strong> bienetreparents.org</p>
           <p><strong>Propriétaire :</strong> [Nom ou raison sociale du propriétaire]</p>
           <p><strong>Adresse :</strong> [Adresse complète du responsable]</p>
-          <p><strong>Contact :</strong> contact@bienetreparents.fr</p>
+          <p><strong>Contact :</strong> info@bienetreparents.org</p>
         </section>
 
         <section className="mb-8">
@@ -103,7 +103,7 @@ const Privacy = () => {
             <li><strong>Droit d'opposition :</strong> Vous pouvez vous opposer à l'utilisation de vos données à des fins spécifiques.</li>
             <li><strong>Droit à la portabilité :</strong> Vous pouvez demander que vos données soient transférées à un tiers.</li>
           </ol>
-          <p className="mt-4">Pour exercer ces droits, contactez-nous à : contact@bienetreparents.fr</p>
+          <p className="mt-4">Pour exercer ces droits, contactez-nous à : info@bienetreparents.org</p>
         </section>
 
         <section className="mb-8">
@@ -147,8 +147,8 @@ const Privacy = () => {
           <h2 className="text-2xl font-semibold mb-4">Contact</h2>
           <p>
             Pour toute question ou préoccupation concernant cette politique de confidentialité, 
-            contactez-nous à : <a href="mailto:contact@bienetreparents.fr" className="text-primary hover:underline">
-              contact@bienetreparents.fr
+            contactez-nous à : <a href="mailto:info@bienetreparents.org" className="text-primary hover:underline">
+              info@bienetreparents.org
             </a>
           </p>
         </section>

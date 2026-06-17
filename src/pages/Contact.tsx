@@ -146,8 +146,8 @@ const Contact = () => {
               </h2>
               <div className="flex items-center space-x-2 text-primary">
                 <Mail className="h-5 w-5" />
-                <a href="mailto:contact@bienetreparents.fr" className="hover:underline">
-                  contact@bienetreparents.fr
+                <a href="mailto:info@bienetreparents.org" className="hover:underline">
+                  info@bienetreparents.org
                 </a>
               </div>
             </div>

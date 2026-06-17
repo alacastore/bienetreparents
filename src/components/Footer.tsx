@@ -47,10 +47,10 @@ const Footer = () => {
           <div className="text-sm">
             Contact :{" "}
             <a
-              href="mailto:contact@bienetreparents.fr"
+              href="mailto:info@bienetreparents.org"
               className="hover:underline transition-colors duration-200"
             >
-              contact@bienetreparents.fr
+              info@bienetreparents.org
             </a>
           </div>
         </div>

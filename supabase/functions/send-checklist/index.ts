@@ -31,7 +31,7 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Bien-être des Parents <contact@bienetreparents.fr>",
+        from: "Bien-être des Parents <info@bienetreparents.org>",
         to: [to],
         subject: "Votre checklist : Routine matinale pour parents occupés",
         html: `
