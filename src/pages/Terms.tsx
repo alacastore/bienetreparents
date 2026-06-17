@@ -6,8 +6,8 @@ const Terms = () => {
   return (
     <>
       <Helmet>
-        <title>Conditions Générales d'Utilisation - bienetreparents.fr</title>
-        <meta name="description" content="Conditions générales d'utilisation du site bienetreparents.fr" />
+        <title>Conditions Générales d'Utilisation - bienetreparents.org</title>
+        <meta name="description" content="Conditions générales d'utilisation du site bienetreparents.org" />
       </Helmet>
       <Navbar />
       <main className="container mx-auto px-4 py-8 prose prose-slate max-w-4xl">
@@ -15,14 +15,14 @@ const Terms = () => {
 
         <section className="mb-8">
           <h2 className="text-2xl font-heading font-semibold mb-4">Préambule</h2>
-          <p>Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation du site <strong>bienetreparents.fr</strong> (ci-après "le Site"). En accédant au Site, vous acceptez sans réserve les présentes CGU. Si vous n'acceptez pas ces termes, vous êtes invité à ne pas utiliser le Site.</p>
+          <p>Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation du site <strong>bienetreparents.org</strong> (ci-après "le Site"). En accédant au Site, vous acceptez sans réserve les présentes CGU. Si vous n'acceptez pas ces termes, vous êtes invité à ne pas utiliser le Site.</p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-2xl font-heading font-semibold mb-4">1. Informations générales</h2>
-          <p><strong>Nom du site :</strong> bienetreparents.fr<br />
+          <p><strong>Nom du site :</strong> bienetreparents.org<br />
           <strong>Propriétaire :</strong> [Nom ou raison sociale du propriétaire]<br />
-          <strong>Adresse e-mail :</strong> contact@bienetreparents.fr</p>
+          <strong>Adresse e-mail :</strong> info@bienetreparents.org</p>
         </section>
 
         <section className="mb-8">
@@ -99,7 +99,7 @@ const Terms = () => {
 
         <section className="mb-8">
           <h2 className="text-2xl font-heading font-semibold mb-4">9. Contact</h2>
-          <p>Pour toute question relative aux présentes CGU, vous pouvez nous contacter à l'adresse suivante : contact@bienetreparents.fr</p>
+          <p>Pour toute question relative aux présentes CGU, vous pouvez nous contacter à l'adresse suivante : info@bienetreparents.org</p>
           <p className="mt-4"><strong>Dernière mise à jour :</strong> [Date de mise à jour]</p>
         </section>
       </main>

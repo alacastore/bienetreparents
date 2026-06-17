@@ -19,10 +19,10 @@ const PolicyUpdate = () => {
         Pour toute question ou demande concernant l'utilisation des cookies sur
         notre site, contactez-nous à :{" "}
         <a
-          href="mailto:contact@bienetreparents.fr"
+          href="mailto:info@bienetreparents.org"
           className="text-primary hover:underline"
         >
-          contact@bienetreparents.fr
+          info@bienetreparents.org
         </a>
       </p>
     </section>
