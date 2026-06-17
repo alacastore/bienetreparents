@@ -20,7 +20,7 @@ export function NewsletterSignup({ onSuccess }: NewsletterSignupProps) {
 
     try {
       const { error } = await supabase
-        .from('newsletter_subscriptions')
+        .from('newsletter_subscriptions' as any)
         .insert([{ email }]);
 
       if (error) {

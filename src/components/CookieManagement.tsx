@@ -17,7 +17,7 @@ const CookieManagement = () => {
     const loadPreferences = async () => {
       try {
         const { data, error } = await supabase
-          .from('cookie_preferences')
+          .from('cookie_preferences' as any)
           .select('*')
           .order('created_at', { ascending: false })
           .limit(1)
@@ -54,7 +54,7 @@ const CookieManagement = () => {
     try {
       // Sauvegarder dans Supabase
       const { error } = await supabase
-        .from('cookie_preferences')
+        .from('cookie_preferences' as any)
         .insert([{
           functional: newPreferences.functional,
           analytics: newPreferences.analytics,
