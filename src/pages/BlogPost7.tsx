@@ -125,10 +125,7 @@ export default function BlogPost7() {
         </div>
       </article>
 
-      <BlogNewsletter 
-        title="Restez informé"
-        description="Recevez nos derniers articles et conseils directement dans votre boîte mail."
-      />
+      <BlogNewsletter />
 
       {/* Section Articles Similaires */}
       <RelatedPosts currentPostId={7} posts={blogPosts} />

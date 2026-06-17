@@ -16,7 +16,7 @@ const CookieManagement = () => {
   useEffect(() => {
     const loadPreferences = async () => {
       try {
-        const { data, error } = await supabase
+        const { data, error } = await (supabase as any)
           .from('cookie_preferences')
           .select('*')
           .order('created_at', { ascending: false })
@@ -53,7 +53,7 @@ const CookieManagement = () => {
     
     try {
       // Sauvegarder dans Supabase
-      const { error } = await supabase
+      const { error } = await (supabase as any)
         .from('cookie_preferences')
         .insert([{
           functional: newPreferences.functional,

@@ -27,7 +27,7 @@ export function GuideDownloadDialog({ open, onOpenChange }: GuideDownloadDialogP
 
     try {
       // Tentative d'insertion dans la newsletter
-      const { error: dbError } = await supabase
+      const { error: dbError } = await (supabase as any)
         .from('newsletter_subscriptions')
         .insert([{ email }]);
 
