@@ -30,7 +30,7 @@ const Index = () => {
       <section className="bg-accent py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="hero-title mb-6">
-            Retrouvez sérénité et équilibre dans votre vie de parent grâce à des solutions pratiques
+            Réduisez votre charge mentale de parent en 15 minutes par jour grâce à des méthodes simples et éprouvées
           </h1>
           <p className="text-xl mb-8 max-w-3xl mx-auto text-gray-600">
             Découvrez des solutions concrètes pour réduire votre stress, organiser votre quotidien 
